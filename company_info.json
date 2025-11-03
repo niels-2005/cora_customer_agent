@@ -1,0 +1,27 @@
+{
+  "company_name": "TechHive",
+  "industry": "E-commerce for Smart Home, Gaming, and Computer Technology",
+  "mission": {
+    "statement": "TechHive brings cutting-edge technology directly to people — accessible, sustainable, and supported by excellent service.",
+    "goal": "Make technology understandable and available to everyone — without the technical jargon."
+  },
+  "vision": "A digital marketplace where anyone can easily find the perfect tech product — powered by our chatbot CORA.",
+  "target_audience": [
+    "Tech enthusiasts and consumers",
+    "Early adopters and gamers",
+    "Small businesses purchasing hardware and peripherals",
+    "People looking for smart devices for their homes"
+  ],
+  "product_categories": [
+    "Smart home devices (e.g., smart lights, security cameras, thermostats)",
+    "Gaming hardware (e.g., headsets, keyboards, controllers, PCs)",
+    "Computers & accessories (e.g., laptops, monitors, cables, adapters)",
+    "Wearables (e.g., smartwatches, fitness bands, VR headsets)",
+    "Software & digital products (e.g., antivirus software, cloud subscriptions, licenses)"
+  ],
+  "unique_selling_points": [
+    "Sustainable shipping options & carbon-neutral deliveries",
+    "24/7 chat support with direct AI assistance",
+    "Fair prices & verified manufacturers"
+  ]
+}
