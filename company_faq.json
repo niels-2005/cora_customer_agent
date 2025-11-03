@@ -1,202 +1,202 @@
 [
   {
     "id": 1,
-    "content": "Frage: Wie kann ich bei TechHive bestellen?\nAntwort: Wählen Sie Ihre gewünschten Produkte aus, legen Sie sie in den Warenkorb und folgen Sie dem Bestellprozess. Sie können ein Kundenkonto erstellen oder als Gast bestellen."
+    "content": "Question: How can I place an order on TechHive?\nAnswer: Select your desired products, add them to your cart, and follow the checkout process. You can create a customer account or order as a guest."
   },
   {
     "id": 2,
-    "content": "Frage: Welche Zahlungsmethoden bietet TechHive an?\nAntwort: Wir akzeptieren Kreditkarte, PayPal, Klarna, Sofortüberweisung, Apple Pay und Google Pay."
+    "content": "Question: Which payment methods does TechHive accept?\nAnswer: We accept credit cards, PayPal, Klarna, instant bank transfer, Apple Pay, and Google Pay."
   },
   {
     "id": 3,
-    "content": "Frage: Wie lange dauert die Lieferung?\nAntwort: In der Regel beträgt die Lieferzeit 2–4 Werktage. Bei Vorbestellungen oder Spezialartikeln kann es länger dauern."
+    "content": "Question: How long does delivery take?\nAnswer: Delivery usually takes 2–4 business days. For pre-orders or special items, it may take longer."
   },
   {
     "id": 4,
-    "content": "Frage: Kann ich meine Bestellung nachträglich ändern?\nAntwort: Solange Ihre Bestellung noch nicht versendet wurde, können Sie Änderungen über Ihr Kundenkonto oder den Chatbot CORA anfragen."
+    "content": "Question: Can I change my order after placing it?\nAnswer: As long as your order hasn’t been shipped yet, you can request changes through your account or by asking our chatbot CORA."
   },
   {
     "id": 5,
-    "content": "Frage: Wie kann ich meine Bestellung stornieren?\nAntwort: Loggen Sie sich in Ihr Konto ein und wählen Sie 'Bestellung stornieren'. Alternativ hilft Ihnen unser Chatbot CORA oder der Support."
+    "content": "Question: How can I cancel my order?\nAnswer: Log in to your account and select 'Cancel Order'. Alternatively, our chatbot CORA or support team can assist you."
   },
   {
     "id": 6,
-    "content": "Frage: Wie funktioniert die Rückgabe bei TechHive?\nAntwort: Sie können Produkte innerhalb von 30 Tagen kostenlos zurücksenden. Nutzen Sie dazu das Rücksendeformular in Ihrem Konto oder fragen Sie CORA nach einem Rücksendelabel."
+    "content": "Question: How does the return process work at TechHive?\nAnswer: You can return products free of charge within 30 days. Use the return form in your account or ask CORA for a return label."
   },
   {
     "id": 7,
-    "content": "Frage: Sind die Produkte bei TechHive original und neu?\nAntwort: Ja, alle unsere Produkte sind neu, originalverpackt und stammen von zertifizierten Herstellern."
+    "content": "Question: Are TechHive’s products new and original?\nAnswer: Yes, all our products are brand new, factory-sealed, and come from certified manufacturers."
   },
   {
     "id": 8,
-    "content": "Frage: Bietet TechHive auch generalüberholte Produkte an?\nAntwort: Ja, wir bieten eine Auswahl an geprüften Refurbished-Produkten mit voller Garantie an."
+    "content": "Question: Does TechHive also offer refurbished products?\nAnswer: Yes, we offer a selection of certified refurbished items with full warranty."
   },
   {
     "id": 9,
-    "content": "Frage: Was bedeutet CO₂-neutrale Lieferung?\nAntwort: Wir kompensieren den CO₂-Ausstoß unserer Lieferungen durch zertifizierte Klimaschutzprojekte."
+    "content": "Question: What does carbon-neutral delivery mean?\nAnswer: We offset the CO₂ emissions of our deliveries through certified climate protection projects."
   },
   {
     "id": 10,
-    "content": "Frage: Wie kann ich den Lieferstatus meiner Bestellung verfolgen?\nAntwort: Nach dem Versand erhalten Sie eine E-Mail mit einer Sendungsverfolgungsnummer oder Sie fragen CORA direkt nach dem Lieferstatus."
+    "content": "Question: How can I track my order?\nAnswer: After shipping, you’ll receive an email with a tracking number, or you can ask CORA directly for the delivery status."
   },
   {
     "id": 11,
-    "content": "Frage: Gibt es eine Garantie auf meine Produkte?\nAntwort: Ja, alle Artikel haben mindestens 2 Jahre gesetzliche Gewährleistung. Viele Hersteller bieten darüber hinaus längere Garantien."
+    "content": "Question: Do the products come with a warranty?\nAnswer: Yes, all items include at least a 2-year legal warranty. Many manufacturers offer extended warranties as well."
   },
   {
     "id": 12,
-    "content": "Frage: Wie funktioniert die Garantieabwicklung?\nAntwort: Kontaktieren Sie unseren Support oder starten Sie den Prozess über CORA. Wir kümmern uns um die Abwicklung mit dem Hersteller."
+    "content": "Question: How does the warranty process work?\nAnswer: Contact our support team or start the process through CORA. We’ll handle the warranty claim with the manufacturer."
   },
   {
     "id": 13,
-    "content": "Frage: Wie kann ich mein Kundenkonto löschen?\nAntwort: Sie können Ihr Konto über die Kontoeinstellungen löschen oder den Support kontaktieren. Ihre Daten werden gemäß DSGVO entfernt."
+    "content": "Question: How can I delete my customer account?\nAnswer: You can delete your account in your account settings or by contacting support. Your data will be removed in compliance with GDPR."
   },
   {
     "id": 14,
-    "content": "Frage: Kann ich auch telefonisch bestellen?\nAntwort: Nein, Bestellungen sind ausschließlich online über unsere Website möglich. Der Chatbot CORA hilft Ihnen dabei Schritt für Schritt."
+    "content": "Question: Can I place an order by phone?\nAnswer: No, orders can only be placed online via our website. Our chatbot CORA can guide you through the process step by step."
   },
   {
     "id": 15,
-    "content": "Frage: Wie sicher sind meine Zahlungsdaten?\nAntwort: Ihre Zahlungsdaten werden verschlüsselt übertragen und nicht auf unseren Servern gespeichert. Wir erfüllen alle aktuellen Sicherheitsstandards (PCI DSS)."
+    "content": "Question: How secure are my payment details?\nAnswer: Your payment data is transmitted securely and not stored on our servers. We comply with all current security standards (PCI DSS)."
   },
   {
     "id": 16,
-    "content": "Frage: Bietet TechHive Geschenkgutscheine an?\nAntwort: Ja, Sie können digitale Geschenkgutscheine in beliebiger Höhe erwerben."
+    "content": "Question: Does TechHive offer gift cards?\nAnswer: Yes, you can purchase digital gift cards in any amount."
   },
   {
     "id": 17,
-    "content": "Frage: Kann ich mehrere Gutscheine kombinieren?\nAntwort: Ja, bis zu drei Gutscheine können pro Bestellung kombiniert werden."
+    "content": "Question: Can I combine multiple gift cards?\nAnswer: Yes, you can combine up to three gift cards per order."
   },
   {
     "id": 18,
-    "content": "Frage: Gibt es Studentenrabatte?\nAntwort: Ja, Studierende erhalten 10 % Rabatt auf ausgewählte Produkte. Eine Verifizierung über Student Beans ist erforderlich."
+    "content": "Question: Do you offer student discounts?\nAnswer: Yes, students receive 10% off selected products. Verification via Student Beans is required."
   },
   {
     "id": 19,
-    "content": "Frage: Welche Versanddienstleister nutzt TechHive?\nAntwort: Wir arbeiten mit DHL GoGreen, DPD und UPS zusammen – alle bieten CO₂-neutrale Versandoptionen."
+    "content": "Question: Which delivery services does TechHive use?\nAnswer: We partner with DHL GoGreen, DPD, and UPS — all offering carbon-neutral shipping options."
   },
   {
     "id": 20,
-    "content": "Frage: Wie kann ich ein Produkt reklamieren?\nAntwort: Melden Sie die Reklamation über Ihr Kundenkonto oder direkt über CORA. Sie erhalten dann Anweisungen und ein Rücksendeetikett."
+    "content": "Question: How can I report a defective product?\nAnswer: You can report it via your account or directly through CORA. You’ll receive instructions and a return label."
   },
   {
     "id": 21,
-    "content": "Frage: Was mache ich, wenn ich ein falsches Produkt erhalten habe?\nAntwort: Bitte kontaktieren Sie uns sofort über den Chatbot CORA oder das Kontaktformular. Wir veranlassen einen kostenlosen Umtausch."
+    "content": "Question: What should I do if I received the wrong product?\nAnswer: Please contact us immediately via the chatbot CORA or our contact form. We’ll arrange a free exchange."
   },
   {
     "id": 22,
-    "content": "Frage: Kann ich meine Lieferadresse nachträglich ändern?\nAntwort: Ja, solange die Bestellung noch nicht versendet wurde. Änderungen können im Konto oder über CORA vorgenommen werden."
+    "content": "Question: Can I change my delivery address after ordering?\nAnswer: Yes, as long as your order hasn’t been shipped. You can change it in your account or ask CORA to update it."
   },
   {
     "id": 23,
-    "content": "Frage: Wie kann ich mich für den Newsletter anmelden?\nAntwort: Am Ende jeder Seite finden Sie ein Newsletter-Feld. Dort können Sie Ihre E-Mail-Adresse eintragen."
+    "content": "Question: How can I subscribe to the newsletter?\nAnswer: You can sign up by entering your email address in the newsletter field at the bottom of our website."
   },
   {
     "id": 24,
-    "content": "Frage: Wie kann ich den Newsletter abbestellen?\nAntwort: Klicken Sie einfach auf den Abmeldelink in einer unserer E-Mails oder ändern Sie Ihre Präferenzen im Kundenkonto."
+    "content": "Question: How can I unsubscribe from the newsletter?\nAnswer: Click the unsubscribe link in any of our emails or change your preferences in your account."
   },
   {
     "id": 25,
-    "content": "Frage: Gibt es eine App von TechHive?\nAntwort: Ja, unsere mobile App ist für iOS und Android verfügbar und bietet exklusive App-Angebote."
+    "content": "Question: Does TechHive have a mobile app?\nAnswer: Yes, our mobile app is available for iOS and Android and offers exclusive app-only deals."
   },
   {
     "id": 26,
-    "content": "Frage: Wie funktioniert der Chatbot CORA?\nAntwort: CORA ist unser KI-gestützter Support-Assistent. Sie kann Fragen zu Bestellungen, Produkten und Rückgaben rund um die Uhr beantworten."
+    "content": "Question: How does the chatbot CORA work?\nAnswer: CORA is our AI-powered support assistant. She can answer questions about orders, products, and returns 24/7."
   },
   {
     "id": 27,
-    "content": "Frage: Speichert CORA persönliche Daten?\nAntwort: CORA speichert keine sensiblen Daten. Chatverläufe werden anonymisiert, um den Service zu verbessern."
+    "content": "Question: Does CORA store personal data?\nAnswer: CORA doesn’t store sensitive data. Chat histories are anonymized to improve our service."
   },
   {
     "id": 28,
-    "content": "Frage: Kann ich CORA auch für Produktempfehlungen nutzen?\nAntwort: Ja, CORA kann Ihnen passende Produkte basierend auf Ihren Interessen oder bisherigen Käufen empfehlen."
+    "content": "Question: Can I use CORA for product recommendations?\nAnswer: Yes, CORA can suggest products based on your interests or previous purchases."
   },
   {
     "id": 29,
-    "content": "Frage: Wie kann ich meine Smart-Home-Geräte mit Alexa oder Google Home verbinden?\nAntwort: Unsere Smart-Home-Produkte sind kompatibel mit den gängigen Sprachassistenten. Die Einrichtung erfolgt über die jeweilige Hersteller-App."
+    "content": "Question: How can I connect my smart home devices to Alexa or Google Home?\nAnswer: Our smart home products are compatible with major voice assistants. Setup is done via the manufacturer’s app."
   },
   {
     "id": 30,
-    "content": "Frage: Bietet TechHive technische Unterstützung bei der Einrichtung an?\nAntwort: Ja, CORA kann Sie Schritt für Schritt anleiten. Bei komplexeren Fällen hilft unser technischer Support per Chat oder E-Mail."
+    "content": "Question: Does TechHive offer technical setup assistance?\nAnswer: Yes, CORA can guide you step by step. For more complex issues, our tech support is available via chat or email."
   },
   {
     "id": 31,
-    "content": "Frage: Was passiert, wenn ein Produkt ausverkauft ist?\nAntwort: Sie können sich benachrichtigen lassen, sobald es wieder verfügbar ist. CORA kann Sie automatisch informieren."
+    "content": "Question: What happens if a product is out of stock?\nAnswer: You can sign up for a notification when it becomes available again. CORA can also notify you automatically."
   },
   {
     "id": 32,
-    "content": "Frage: Kann ich Produkte vorbestellen?\nAntwort: Ja, bei ausgewählten Artikeln ist eine Vorbestellung möglich. Der voraussichtliche Liefertermin wird auf der Produktseite angezeigt."
+    "content": "Question: Can I pre-order products?\nAnswer: Yes, pre-orders are available for selected items. The expected delivery date is shown on the product page."
   },
   {
     "id": 33,
-    "content": "Frage: Wie erhalte ich eine Rechnung für meine Bestellung?\nAntwort: Nach dem Versand steht Ihre Rechnung als PDF im Kundenkonto bereit. Sie wird außerdem per E-Mail verschickt."
+    "content": "Question: How can I get an invoice for my order?\nAnswer: After shipping, your invoice will be available as a PDF in your account and sent via email."
   },
   {
     "id": 34,
-    "content": "Frage: Kann ich als Unternehmen bei TechHive einkaufen?\nAntwort: Ja, wir bieten Geschäftskonten mit Mengenrabatten und steuerlich korrekten Rechnungen an."
+    "content": "Question: Can businesses buy from TechHive?\nAnswer: Yes, we offer business accounts with volume discounts and tax-compliant invoices."
   },
   {
     "id": 35,
-    "content": "Frage: Wie funktioniert die Software-Aktivierung bei digitalen Produkten?\nAntwort: Nach dem Kauf erhalten Sie einen Lizenzschlüssel per E-Mail. Aktivieren Sie diesen in der entsprechenden Software oder im Benutzerkonto."
+    "content": "Question: How does software activation for digital products work?\nAnswer: After purchase, you’ll receive a license key via email. Activate it in the respective software or your user account."
   },
   {
     "id": 36,
-    "content": "Frage: Was soll ich tun, wenn mein Lizenzschlüssel nicht funktioniert?\nAntwort: Bitte kontaktieren Sie den Support oder CORA. Wir prüfen den Code und stellen ggf. einen neuen bereit."
+    "content": "Question: What should I do if my license key doesn’t work?\nAnswer: Please contact support or CORA. We’ll verify the key and issue a new one if necessary."
   },
   {
     "id": 37,
-    "content": "Frage: Kann ich digitale Produkte zurückgeben?\nAntwort: Nein, digitale Produkte sind vom Widerruf ausgeschlossen, sobald der Lizenzschlüssel verwendet wurde."
+    "content": "Question: Can I return digital products?\nAnswer: No, digital products are excluded from withdrawal once the license key has been used."
   },
   {
     "id": 38,
-    "content": "Frage: Welche Datenschutzrichtlinien gelten bei TechHive?\nAntwort: Wir verarbeiten personenbezogene Daten ausschließlich gemäß DSGVO. Details finden Sie in unserer Datenschutzerklärung."
+    "content": "Question: What data protection policies apply at TechHive?\nAnswer: We process personal data exclusively in accordance with GDPR. Details are available in our privacy policy."
   },
   {
     "id": 39,
-    "content": "Frage: Wie kann ich den Support kontaktieren?\nAntwort: Sie erreichen uns über den Chatbot CORA, das Kontaktformular oder per E-Mail unter support@techhive.de."
+    "content": "Question: How can I contact support?\nAnswer: You can reach us via the chatbot CORA, our contact form, or by email at support@techhive.de."
   },
   {
     "id": 40,
-    "content": "Frage: Wie kann ich mein Passwort zurücksetzen?\nAntwort: Klicken Sie im Login-Bereich auf 'Passwort vergessen' und folgen Sie den Anweisungen in der E-Mail."
+    "content": "Question: How can I reset my password?\nAnswer: Click 'Forgot password' on the login page and follow the instructions in the email."
   },
   {
     "id": 41,
-    "content": "Frage: Wie lange werden meine Daten gespeichert?\nAntwort: Daten werden nur so lange gespeichert, wie sie für die Auftragsabwicklung oder gesetzliche Aufbewahrungspflichten notwendig sind."
+    "content": "Question: How long is my data stored?\nAnswer: Data is stored only as long as necessary for order processing or legal retention requirements."
   },
   {
     "id": 42,
-    "content": "Frage: Gibt es eine Möglichkeit, CO₂-Ausgleich selbst zu unterstützen?\nAntwort: Ja, Sie können beim Checkout freiwillig 1 € zum CO₂-Ausgleich spenden."
+    "content": "Question: Can I contribute to carbon offsetting myself?\nAnswer: Yes, you can voluntarily add a €1 contribution to carbon offsetting during checkout."
   },
   {
     "id": 43,
-    "content": "Frage: Was passiert, wenn mein Paket beschädigt ankommt?\nAntwort: Melden Sie den Schaden bitte sofort über CORA oder per E-Mail mit Fotoanhang. Wir ersetzen den Artikel umgehend."
+    "content": "Question: What should I do if my package arrives damaged?\nAnswer: Please report the damage immediately via CORA or email with a photo. We’ll replace the item promptly."
   },
   {
     "id": 44,
-    "content": "Frage: Kann ich meine Bestellung an eine Packstation liefern lassen?\nAntwort: Ja, DHL-Lieferungen an Packstationen sind möglich. Geben Sie dazu Ihre Postnummer und die Packstation an."
+    "content": "Question: Can I have my order delivered to a parcel locker?\nAnswer: Yes, DHL deliveries to parcel lockers are possible. Please include your postal number and locker ID."
   },
   {
     "id": 45,
-    "content": "Frage: Wie kann ich mich über neue Produkte informieren?\nAntwort: Abonnieren Sie unseren Newsletter oder aktivieren Sie Benachrichtigungen in der App."
+    "content": "Question: How can I stay informed about new products?\nAnswer: Subscribe to our newsletter or enable notifications in the app."
   },
   {
     "id": 46,
-    "content": "Frage: Kann ich bei TechHive Ratenzahlung nutzen?\nAntwort: Ja, mit Klarna oder PayPal können Sie in flexiblen Raten zahlen."
+    "content": "Question: Does TechHive offer installment payments?\nAnswer: Yes, with Klarna or PayPal you can pay in flexible installments."
   },
   {
     "id": 47,
-    "content": "Frage: Wie funktioniert die Produktbewertung?\nAntwort: Nach dem Kauf erhalten Sie eine E-Mail mit einem Bewertungslink. Bewertungen helfen anderen Kund:innen bei der Entscheidung."
+    "content": "Question: How does product reviewing work?\nAnswer: After your purchase, you’ll receive an email with a review link. Reviews help other customers make informed decisions."
   },
   {
     "id": 48,
-    "content": "Frage: Wie erkenne ich, ob ein Produkt mit meinem Gerät kompatibel ist?\nAntwort: Auf jeder Produktseite finden Sie die Kompatibilitätsangaben. CORA kann Ihnen ebenfalls helfen, passende Artikel zu finden."
+    "content": "Question: How can I check if a product is compatible with my device?\nAnswer: Compatibility information is available on each product page. CORA can also help you find compatible items."
   },
   {
     "id": 49,
-    "content": "Frage: Kann ich Produkte reservieren?\nAntwort: Reservierungen sind derzeit nicht möglich. Wir empfehlen, sich per Benachrichtigung informieren zu lassen, sobald das Produkt wieder verfügbar ist."
+    "content": "Question: Can I reserve products?\nAnswer: Reservations are currently not possible. You can sign up for a restock notification when the product becomes available again."
   },
   {
     "id": 50,
-    "content": "Frage: Wie kann ich meine Lieferpräferenzen speichern?\nAntwort: Im Kundenkonto können Sie Standardadressen und bevorzugte Lieferoptionen hinterlegen."
+    "content": "Question: How can I save my delivery preferences?\nAnswer: In your account, you can set default addresses and preferred delivery options."
   }
 ]

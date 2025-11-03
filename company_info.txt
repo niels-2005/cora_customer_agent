@@ -1,47 +1,42 @@
-🏢 Unternehmensname
-
+🏢 Company Name
 TechHive
 
-💡 Branche
-
-E-Commerce für Smart-Home-, Gaming- und Computer-Technologie
+💡 Industry
+E-commerce for Smart Home, Gaming, and Computer Technology
 
 🌍 Mission
-
-TechHive bringt modernste Technik direkt zu den Menschen – verständlich, nachhaltig und mit exzellentem Service.
-
-Ziel: Technologie für alle zugänglich machen – ohne Fachchinesisch.
+TechHive brings cutting-edge technology directly to people — accessible, sustainable, and supported by excellent service.
+Goal: Make technology understandable and available to everyone — without the technical jargon.
 
 🚀 Vision
+A digital marketplace where anyone can easily find the perfect tech product — powered by our chatbot CORA.
 
-Ein digitaler Marktplatz, auf dem jede:r einfach das perfekte Tech-Produkt findet – mit unserem Chatbot CORA.
+👥 Target Audience
 
-👥 Zielgruppe
+Tech enthusiasts and consumers
 
-Technikbegeisterte Konsument:innen
+Early adopters and gamers
 
-Early Adopters & Gamer:innen
+Small businesses purchasing hardware and peripherals
 
-Kleine Unternehmen, die Hardware/Peripherie einkaufen
+People looking for smart devices for their homes
 
-Menschen, die smarte Geräte für Zuhause wollen
+🛍️ Product Categories
 
-🛍️ Produktkategorien
+Smart home devices (e.g., smart lights, security cameras, thermostats)
 
-Smart-Home-Geräte (z. B. smarte Lampen, Sicherheitskameras, Thermostate)
+Gaming hardware (e.g., headsets, keyboards, controllers, PCs)
 
-Gaming-Hardware (z. B. Headsets, Tastaturen, Controller, PCs)
+Computers & accessories (e.g., laptops, monitors, cables, adapters)
 
-Computer & Zubehör (Laptops, Monitore, Kabel, Adapter)
+Wearables (e.g., smartwatches, fitness bands, VR headsets)
 
-Wearables (Smartwatches, Fitnessbänder, VR-Headsets)
+Software & digital products (e.g., antivirus software, cloud subscriptions, licenses)
 
-Software & digitale Produkte (Antivirus, Cloud-Abos, Lizenzen)
+⚙️ Unique Selling Points (USPs)
 
-⚙️ USP (Alleinstellungsmerkmal)
+Sustainable shipping options & carbon-neutral deliveries
 
-Nachhaltige Versandoptionen & CO₂-neutrale Lieferungen
+24/7 chat support with direct AI assistance
 
-24/7 Chat-Support mit direkter KI-Unterstützung
-
-Faire Preise & geprüfte Hersteller
+Fair prices & verified manufacturers
