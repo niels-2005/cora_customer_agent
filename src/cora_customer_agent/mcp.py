@@ -7,13 +7,6 @@ vector_store = load_vector_store(collection_name="company_faq", init_vector_stor
 
 
 @mcp.tool()
-def get_company_info():
-    """Provides information about the company, its vision, target audience, and unique selling points."""
-    with open("company_info.txt", "r", encoding="utf-8") as file:
-        return file.read()
-
-
-@mcp.tool()
 async def get_company_faq_answers(query: str) -> str:
     """
     Use this tool to answer customer questions based on the company's FAQ documents.

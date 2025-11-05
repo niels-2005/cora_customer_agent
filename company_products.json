@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "content": "Product: HiveSmart Light Bulb A60\nCategory: Smart Home\nDescription: Energy-efficient Wi-Fi LED bulb controllable via the TechHive app or voice assistants.\nPrice: €19.99\nFeatures: [Dimmable, 16 million colors, Compatible with Alexa and Google Home]"
+  },
+  {
+    "id": 2,
+    "content": "Product: HiveCam 360 Pro\nCategory: Smart Home\nDescription: Indoor security camera with 360° rotation and AI motion detection.\nPrice: €89.99\nFeatures: [Full HD, Night vision, Two-way audio, Local & cloud storage]"
+  },
+  {
+    "id": 3,
+    "content": "Product: GameCore X1 Mechanical Keyboard\nCategory: Gaming Hardware\nDescription: RGB mechanical keyboard designed for competitive gamers.\nPrice: €129.00\nFeatures: [Hot-swappable switches, USB-C, RGB lighting, Anti-ghosting]"
+  },
+  {
+    "id": 4,
+    "content": "Product: PulseVR One Headset\nCategory: Wearables\nDescription: Lightweight VR headset for PC and standalone gaming.\nPrice: €349.00\nFeatures: [4K resolution, Inside-out tracking, Wireless mode]"
+  },
+  {
+    "id": 5,
+    "content": "Product: HiveWatch Active 2\nCategory: Wearables\nDescription: Smartwatch with health tracking and customizable digital faces.\nPrice: €179.00\nFeatures: [Heart rate monitoring, Sleep tracking, GPS, 7-day battery life]"
+  },
+  {
+    "id": 6,
+    "content": "Product: StreamBeam 4K Stick\nCategory: Smart Home\nDescription: Compact streaming stick supporting all major apps and voice control.\nPrice: €59.99\nFeatures: [4K HDR, Dual-band Wi-Fi, Remote with mic, AirPlay support]"
+  },
+  {
+    "id": 7,
+    "content": "Product: HiveAir Smart Purifier\nCategory: Smart Home\nDescription: Air purifier that monitors and cleans your indoor air automatically.\nPrice: €199.00\nFeatures: [HEPA filter, Air quality sensor, App integration, Silent mode]"
+  },
+  {
+    "id": 8,
+    "content": "Product: SoundHive Pro Wireless Headset\nCategory: Gaming Hardware\nDescription: Over-ear wireless gaming headset with immersive 3D audio.\nPrice: €149.00\nFeatures: [Noise cancellation, Detachable mic, 20-hour battery, Low latency]"
+  },
+  {
+    "id": 9,
+    "content": "Product: HiveDock Pro USB-C Hub\nCategory: Computers & Accessories\nDescription: Multiport dock for laptops with power delivery and HDMI.\nPrice: €89.00\nFeatures: [8-in-1 hub, 100W charging, 4K HDMI, SD card reader]"
+  },
+  {
+    "id": 10,
+    "content": "Product: EcoCharge Solar Bank\nCategory: Accessories\nDescription: Solar-powered power bank for sustainable charging.\nPrice: €49.99\nFeatures: [10,000mAh, Fast charge, Dual USB output, Weather-resistant]"
+  },
+  {
+    "id": 11,
+    "content": "Product: HiveThermo Smart Thermostat\nCategory: Smart Home\nDescription: AI-controlled thermostat that learns your heating preferences.\nPrice: €159.00\nFeatures: [App control, Geofencing, Energy reports, Works with Alexa]"
+  },
+  {
+    "id": 12,
+    "content": "Product: TitanPlay RGB Mouse\nCategory: Gaming Hardware\nDescription: High-precision gaming mouse with customizable DPI and lighting.\nPrice: €69.00\nFeatures: [16,000 DPI, Adjustable weights, RGB, Ergonomic design]"
+  },
+  {
+    "id": 13,
+    "content": "Product: CloudSafe Antivirus Premium\nCategory: Software & Digital Products\nDescription: Cloud-based security software for devices and home networks.\nPrice: €39.99/year\nFeatures: [Real-time protection, VPN included, Multi-device support]"
+  },
+  {
+    "id": 14,
+    "content": "Product: HiveFit Band Mini\nCategory: Wearables\nDescription: Compact fitness tracker with heart rate and sleep analysis.\nPrice: €59.00\nFeatures: [Waterproof, Step counter, 10-day battery, Bluetooth 5.0]"
+  },
+  {
+    "id": 15,
+    "content": "Product: Quantum Pro Gaming Chair\nCategory: Gaming Hardware\nDescription: Ergonomic gaming chair with lumbar support and adjustable armrests.\nPrice: €249.00\nFeatures: [PU leather, Recline 135°, Head cushion, Metal base]"
+  },
+  {
+    "id": 16,
+    "content": "Product: HiveSecure Door Sensor Kit\nCategory: Smart Home\nDescription: Wireless door and window sensors for home security.\nPrice: €79.00\nFeatures: [Wi-Fi, Battery powered, App alerts, Easy installation]"
+  },
+  {
+    "id": 17,
+    "content": "Product: PixelView 27Q Monitor\nCategory: Computers & Accessories\nDescription: 27-inch QHD monitor ideal for work and gaming.\nPrice: €299.00\nFeatures: [144Hz refresh rate, IPS panel, HDR10, Adjustable stand]"
+  },
+  {
+    "id": 18,
+    "content": "Product: HiveDesk Mat Pro\nCategory: Accessories\nDescription: Smart desk mat with wireless charging and ambient lighting.\nPrice: €79.99\nFeatures: [Wireless charger, RGB edges, Water-resistant surface]"
+  },
+  {
+    "id": 19,
+    "content": "Product: HiveHome Speaker Mini\nCategory: Smart Home\nDescription: Compact smart speaker for music, timers, and home control.\nPrice: €49.00\nFeatures: [Voice assistant, Bluetooth, 360° sound, Multi-room support]"
+  },
+  {
+    "id": 20,
+    "content": "Product: NovaCloud 2TB Storage Plan\nCategory: Software & Digital Products\nDescription: Secure cloud storage with collaboration and backup features.\nPrice: €5.99/month\nFeatures: [End-to-end encryption, File sharing, Version history]"
+  }
+]
