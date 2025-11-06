@@ -4,10 +4,14 @@ from cora_customer_agent.utils.load_vector_store import load_vector_store
 mcp = FastMCP("Customer Chatbot MCP Server")
 
 vector_store_faq = load_vector_store(
-    collection_name="company_faq", init_vector_store=False
+    collection_name="company_faq",
+    init_vector_store=False,
+    documents_json_path="/home/niels/dev/cora_customer_agent/company_faq.json",
 )
 vector_store_products = load_vector_store(
-    collection_name="company_products", init_vector_store=False
+    collection_name="company_products",
+    init_vector_store=False,
+    documents_json_path="/home/niels/dev/cora_customer_agent/company_products.json",
 )
 
 
@@ -26,7 +30,6 @@ async def get_company_faq_answers(query: str) -> str:
         str: The content of the most relevant FAQ answer.
     """
     results = await vector_store_faq.asimilarity_search(query, k=1)
-
     return results[0].page_content
 
 
@@ -45,7 +48,6 @@ async def get_product_informations(query: str) -> str:
         str: The content of the most relevant product information.
     """
     results = await vector_store_products.asimilarity_search(query, k=1)
-
     return results[0].page_content
 
 

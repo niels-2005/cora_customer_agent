@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "gradio>=5.49.1",
     "ipykernel>=7.1.0",
     "jq>=1.10.0",
     "langchain>=1.0.3",
