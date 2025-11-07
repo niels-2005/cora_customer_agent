@@ -1,16 +1,15 @@
 from cora_customer_agent.utils.get_agent import get_agent
+from pydantic import BaseModel
 import gradio as gr
-from gradio import ChatMessage
 
-agent = None
+agent = get_agent()
+
+
+class UserContext(BaseModel):
+    user_name: str
 
 
 async def slow_echo(message, history):
-    global agent
-
-    if agent is None:
-        agent = await get_agent()
-
     # Buffer für die komplette Antwort
     reasoning = ""
     full_response = ""
@@ -26,17 +25,21 @@ async def slow_echo(message, history):
         },
         config={"configurable": {"thread_id": "1"}},
         stream_mode="messages",
+        context=UserContext(user_name="Niels"),
     ):
-        for block in token.content_blocks:
-            if "reasoning" in block:
-                # Reasoning wird direkt yielded (kann separat behandelt werden)
-                reasoning += block["reasoning"]
-                # yield reasoning
-            elif "text" in block:
-                # Text zum Buffer hinzufügen
-                full_response += block["text"]
-                # Komplette Nachricht bis jetzt yielden
-                yield full_response
+        # Tool-Outputs überspringen (haben 'name' und 'tool_call_id' Attribute)
+        if hasattr(token, "tool_call_id") and token.tool_call_id:
+            continue
+
+        # Reasoning aus additional_kwargs verarbeiten
+        if "reasoning_content" in token.additional_kwargs:
+            reasoning += token.additional_kwargs["reasoning_content"]
+            # yield reasoning  # Optional: Reasoning separat anzeigen
+
+        # Normalen Text-Content verarbeiten
+        if token.content:
+            full_response += token.content
+            yield full_response
 
 
 gr.ChatInterface(

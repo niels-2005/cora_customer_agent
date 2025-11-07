@@ -1,15 +1,14 @@
 from langchain.agents import create_agent
 from langgraph.checkpoint.memory import InMemorySaver
 from .get_agent_tools import get_tools
-from .get_system_prompt import get_system_prompt
 from .load_ollama_llm import load_ollama_llm
+from .get_agent_middleware import get_agent_middleware
 
 
-async def get_agent():
-    tools = await get_tools()
+def get_agent():
     return create_agent(
         model=load_ollama_llm(),
-        tools=tools,
-        system_prompt=get_system_prompt(),
+        tools=get_tools(),
+        middleware=get_agent_middleware(),
         checkpointer=InMemorySaver(),
     )
