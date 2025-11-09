@@ -68,7 +68,7 @@ async def get_product_informations(query: str) -> str:
     return get_tool_output(results)
 
 
-def get_tools() -> list[BaseTool]:
+def get_agent_tools() -> list[BaseTool]:
     """
     Returns the list of tools available for the agent.
 

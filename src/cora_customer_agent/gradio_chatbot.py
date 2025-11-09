@@ -1,8 +1,21 @@
-from cora_customer_agent.utils.get_agent import get_agent
+from langchain.agents import create_agent
+
 from pydantic import BaseModel
 import gradio as gr
 
-agent = get_agent()
+from cora_customer_agent.utils.load_ollama_llm import load_ollama_llm
+from cora_customer_agent.utils.get_agent_tools import get_agent_tools
+from cora_customer_agent.utils.get_agent_middleware import get_agent_middleware
+from langgraph.checkpoint.memory import InMemorySaver
+from langchain_community.cache import InMemoryCache
+
+agent = create_agent(
+    model=load_ollama_llm(),
+    tools=get_agent_tools(),
+    middleware=get_agent_middleware(),
+    checkpointer=InMemorySaver(),
+    cache=InMemoryCache(),
+)
 
 
 class UserContext(BaseModel):
