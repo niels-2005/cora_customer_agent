@@ -2,6 +2,8 @@ from langchain_community.document_loaders import JSONLoader
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 
+_embedding_model = None
+
 
 def load_company_docs(file_path: str):
     loader = JSONLoader(
@@ -14,7 +16,12 @@ def load_company_docs(file_path: str):
 
 
 def load_embedding_model():
-    return HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    global _embedding_model
+    if _embedding_model is None:
+        _embedding_model = HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )
+    return _embedding_model
 
 
 def load_vector_store(

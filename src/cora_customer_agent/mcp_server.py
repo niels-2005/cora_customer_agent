@@ -1,6 +1,8 @@
-from .load_vector_store import load_vector_store
-from langchain.tools import tool, BaseTool
+from mcp.server.fastmcp import FastMCP
 from langchain_core.documents import Document
+from cora_customer_agent.utils.load_vector_store import load_vector_store
+
+mcp = FastMCP("CoraCustomerAgentMCP", port=8080)
 
 vector_store_faq = load_vector_store(
     collection_name="company_faq",
@@ -34,7 +36,7 @@ def get_tool_output(results: list[tuple[Document, float]]) -> str:
         return doc.page_content
 
 
-@tool
+@mcp.tool()
 async def get_company_faq_answers(query: str) -> str:
     """
     Answers customer questions based on the company's FAQ documents.
@@ -51,7 +53,7 @@ async def get_company_faq_answers(query: str) -> str:
     return get_tool_output(results)
 
 
-@tool
+@mcp.tool()
 async def get_product_informations(query: str) -> str:
     """
     Provides product information to answer customer questions based on company product documents.
@@ -68,11 +70,5 @@ async def get_product_informations(query: str) -> str:
     return get_tool_output(results)
 
 
-def get_agent_tools() -> list[BaseTool]:
-    """
-    Returns the list of tools available for the agent.
-
-    Returns:
-        list[BaseTool]: A list of tool functions for the agent.
-    """
-    return [get_company_faq_answers, get_product_informations]
+if __name__ == "__main__":
+    mcp.run(transport="streamable-http")

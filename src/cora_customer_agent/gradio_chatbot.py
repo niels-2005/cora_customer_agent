@@ -1,33 +1,32 @@
-from langchain.agents import create_agent
-
+from cora_customer_agent.utils.get_agent import get_agent
+from cora_customer_agent.utils.get_semantic_cache import get_semantic_cache
 from pydantic import BaseModel
 import gradio as gr
 
-from cora_customer_agent.utils.load_ollama_llm import load_ollama_llm
-from cora_customer_agent.utils.get_agent_tools import get_agent_tools
-from cora_customer_agent.utils.get_agent_middleware import get_agent_middleware
-from langgraph.checkpoint.memory import InMemorySaver
-from langchain_community.cache import InMemoryCache
+_semantic_cache = get_semantic_cache()
 
-agent = create_agent(
-    model=load_ollama_llm(),
-    tools=get_agent_tools(),
-    middleware=get_agent_middleware(),
-    checkpointer=InMemorySaver(),
-    cache=InMemoryCache(),
-)
+_agent = None
 
 
 class UserContext(BaseModel):
     user_name: str
 
 
-async def slow_echo(message, history):
-    # Buffer für die komplette Antwort
-    reasoning = ""
+async def generate_response(message, history):
+    # Lazy load the agent, needed because get_agent is async.
+    global _agent
+    if _agent is None:
+        _agent = await get_agent()
+
+    # If Tokenizer available that supports async, switch to "await _semantic_cache.acheck(message)"
+    cache_hit = _semantic_cache.check(message)
+    if cache_hit:
+        yield cache_hit[0]["response"]
+        return
+
     full_response = ""
 
-    async for token, metadata in agent.astream(
+    async for token, metadata in _agent.astream(
         {
             "messages": [
                 {
@@ -40,23 +39,23 @@ async def slow_echo(message, history):
         stream_mode="messages",
         context=UserContext(user_name="Niels"),
     ):
-        # Tool-Outputs überspringen (haben 'name' und 'tool_call_id' Attribute)
         if hasattr(token, "tool_call_id") and token.tool_call_id:
             continue
 
-        # Reasoning aus additional_kwargs verarbeiten
-        if "reasoning_content" in token.additional_kwargs:
-            reasoning += token.additional_kwargs["reasoning_content"]
-            # yield reasoning  # Optional: Reasoning separat anzeigen
-
-        # Normalen Text-Content verarbeiten
         if token.content:
             full_response += token.content
             yield full_response
 
+    if full_response.strip():
+        # If Tokenizer availdable that supports async, switch to "await _semantic_cache.astore(...)"
+        _semantic_cache.store(
+            prompt=message,
+            response=full_response,
+        )
+
 
 gr.ChatInterface(
-    fn=slow_echo,
+    fn=generate_response,
     type="messages",
     textbox=gr.Textbox(
         placeholder="Ask me anything about TechHive", container=False, scale=7
