@@ -27,6 +27,12 @@ def get_dynamic_system_prompt(request: ModelRequest) -> str:
 
 
 def get_agent_middleware() -> list:
+    """
+    Returns a list of middleware for the agent, including dynamic prompts and PII protection.
+
+    Returns:
+        list: List of middleware functions.
+    """
     return [
         get_dynamic_system_prompt,
         # If the user inputs 'My email is john.doe@example.com', it will be redacted to 'My email is [REDACTED]'.

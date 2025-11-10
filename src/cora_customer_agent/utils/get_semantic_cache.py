@@ -3,6 +3,12 @@ from redisvl.utils.vectorize import HFTextVectorizer
 
 
 def get_semantic_cache() -> SemanticCache:
+    """
+    Creates and returns a semantic cache using Redis and HuggingFace vectorizer.
+
+    Returns:
+        SemanticCache: The configured semantic cache instance.
+    """
     return SemanticCache(
         name="llmcache",
         redis_url="redis://localhost:6379",

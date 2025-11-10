@@ -2,6 +2,12 @@ from langchain_ollama import ChatOllama
 
 
 def load_ollama_llm() -> ChatOllama:
+    """
+    Loads and configures a ChatOllama model instance.
+
+    Returns:
+        ChatOllama: The configured Ollama chat model.
+    """
     return ChatOllama(
         model="qwen3:14b",
         temperature=0.8,

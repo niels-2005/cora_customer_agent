@@ -1,4 +1,13 @@
 def get_system_prompt(user_name: str) -> str:
+    """
+    Generates a system prompt for the TechHive customer support assistant.
+
+    Args:
+        user_name (str): The name of the user to greet.
+
+    Returns:
+        str: The formatted system prompt.
+    """
     return f"""
 You are CORA, the helpful customer support assistant for TechHive.
 

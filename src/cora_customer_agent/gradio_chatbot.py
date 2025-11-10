@@ -9,11 +9,27 @@ _agent = None
 
 
 class UserContext(BaseModel):
+    """User context for the chat session.
+
+    Args:
+        BaseModel (pydantic.BaseModel): Base model for data validation.
+    """
+
     user_name: str
 
 
 async def generate_response(message, history):
-    # Lazy load the agent, needed because get_agent is async.
+    """
+    Generates a response to a user message using an AI agent with semantic caching.
+
+    Args:
+        message (str): The user's message, e.g., 'How do I reset my password?'.
+        history (list): The chat history (not used in current implementation).
+
+    Yields:
+        str: Partial response content as tokens are generated.
+    """
+    # lazy load the agent, needed because get_agent is async. In production, consider initializing at startup with warmup sentences.
     global _agent
     if _agent is None:
         _agent = await get_agent()
@@ -39,6 +55,7 @@ async def generate_response(message, history):
         stream_mode="messages",
         context=UserContext(user_name="Niels"),
     ):
+        # skip tool call tokens
         if hasattr(token, "tool_call_id") and token.tool_call_id:
             continue
 

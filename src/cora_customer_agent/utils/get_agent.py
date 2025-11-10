@@ -12,6 +12,12 @@ client = get_mcp_client()
 
 
 async def get_agent():
+    """
+    Creates and returns an AI agent with MCP tools, middleware, memory and caching.
+
+    Returns:
+        Agent: The configured agent instance.
+    """
     return create_agent(
         model=load_ollama_llm(),
         tools=await client.get_tools(),

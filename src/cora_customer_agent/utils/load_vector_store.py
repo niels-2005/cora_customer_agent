@@ -6,6 +6,24 @@ _embedding_model = None
 
 
 def load_company_docs(file_path: str):
+    """
+    Loads company documents from a JSON file.
+
+    Note:
+        The JSON file is expected to be an array of objects, each containing a 'content' key.
+
+        For example:
+                {
+                    "id": 2,
+                    "content": "Question: Which payment methods does TechHive accept?\nAnswer: We accept credit cards, PayPal, Klarna, instant bank transfer, Apple Pay, and Google Pay."
+                }
+
+    Args:
+        file_path (str): Path to the JSON file containing documents.
+
+    Returns:
+        list: List of loaded documents.
+    """
     loader = JSONLoader(
         file_path=file_path,
         jq_schema=".[]",
@@ -16,6 +34,15 @@ def load_company_docs(file_path: str):
 
 
 def load_embedding_model():
+    """
+    Loads or returns the cached HuggingFace embedding model.
+
+    Note:
+        Caching is needed to avoid re-initializing the model on each call.
+
+    Returns:
+        HuggingFaceEmbeddings: The embedding model instance.
+    """
     global _embedding_model
     if _embedding_model is None:
         _embedding_model = HuggingFaceEmbeddings(
@@ -29,6 +56,21 @@ def load_vector_store(
     init_vector_store: bool = True,
     documents_json_path: str = None,
 ) -> Chroma:
+    """
+    Loads a Chroma vector store with optional document initialization.
+
+    Note:
+        If init_vector_store is True, documents will be loaded from the specified JSON file and added to the vector store.
+        Use this option when setting up the vector store for the first time or when updating documents.
+
+    Args:
+        collection_name (str): Name of the collection.
+        init_vector_store (bool): Whether to add documents to the store. Defaults to True.
+        documents_json_path (str): Path to JSON file for documents if init_vector_store is True.
+
+    Returns:
+        Chroma: The vector store instance.
+    """
     vector_store = Chroma(
         collection_name=collection_name,
         embedding_function=load_embedding_model(),

@@ -20,7 +20,7 @@ def get_tool_output(results: list[tuple[Document, float]]) -> str:
     """Extracts the content from the most relevant document in the results.
 
     Note:
-        If there are no relevant documents found, a message indicating this will be returned. This is customizable and will effect
+        If there are no relevant documents found, a message indicating this will be returned. This is customizable and will probably affect
         how the agent responds when no relevant information is found.
 
     Args:
