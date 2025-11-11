@@ -1,0 +1,43 @@
+mcp_config:
+  name: "CoraCustomerAgentMCP"
+  port: 8080
+  host: "127.0.0.1"
+
+mcp_client_config:
+  url: "http://127.0.0.1:8080/mcp"
+
+vector_db_config:
+  host: "127.0.0.1"
+  port: 8000
+
+  faq_collection_name: "company_faq" 
+  faq_json_path: "src/cora_customer_agent/company_docs/company_faq.json"
+
+  company_products_collection_name: "company_products"
+  company_products_json_path: "src/cora_customer_agent/company_docs/company_products.json"
+
+  init_vector_store: false
+
+  k: 1
+  score_threshold: 0.4
+
+embedding_model_config:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+
+semantic_cache_config:
+  name: "llmcache"
+  redis_url: "redis://localhost:6379" 
+  distance_threshold: 0.05
+  ttl: 3600 
+
+
+ollama_config:
+  model: "qwen3:14b"
+  temperature: 0.5
+  top_p: 0.9
+  top_k: 50
+  reasoning: false 
+  num_predict: 512 
+  num_ctx: 8192
+  validate_model_on_init: true 
+  keep_alive: 1000

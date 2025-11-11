@@ -71,12 +71,17 @@ async def generate_response(message, history):
         )
 
 
-gr.ChatInterface(
-    fn=generate_response,
-    type="messages",
-    textbox=gr.Textbox(
-        placeholder="Ask me anything about TechHive", container=False, scale=7
-    ),
-    title="CORA - TechHive Customer Support Assistant",
-    theme=gr.themes.Monochrome(),
-).launch()
+def main():
+    gr.ChatInterface(
+        fn=generate_response,
+        type="messages",
+        textbox=gr.Textbox(
+            placeholder="Ask me anything about TechHive", container=False, scale=7
+        ),
+        title="CORA - TechHive Customer Support Assistant",
+        theme=gr.themes.Monochrome(),
+    ).launch()
+
+
+if __name__ == "__main__":
+    main()

@@ -17,13 +17,11 @@ dependencies = [
     "langchain-mcp-adapters>=0.1.12",
     "langchain-ollama>=1.0.0",
     "mcp[cli]>=1.21.0",
+    "pyyaml>=6.0.3",
     "redisvl>=0.11.0",
     "sentence-transformers>=5.1.2",
 ]
 
 [project.scripts]
-cora-customer-agent = "cora_customer_agent:main"
-
-[build-system]
-requires = ["uv_build>=0.8.4,<0.9.0"]
-build-backend = "uv_build"
+run_mcp = "cora_customer_agent.mcp_server:main"
+run_gradio = "cora_customer_agent.gradio_chatbot:main"

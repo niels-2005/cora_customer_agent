@@ -1,4 +1,5 @@
 from langchain_mcp_adapters.client import MultiServerMCPClient
+from cora_customer_agent.cora_config import Config
 
 
 def get_mcp_client() -> MultiServerMCPClient:
@@ -11,7 +12,7 @@ def get_mcp_client() -> MultiServerMCPClient:
         {
             "company": {
                 "transport": "streamable_http",
-                "url": "http://localhost:8080/mcp",
+                "url": Config.mcp_client_config["url"],
             }
         }
     )

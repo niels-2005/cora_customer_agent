@@ -1,5 +1,6 @@
 from redisvl.extensions.cache.llm import SemanticCache
 from redisvl.utils.vectorize import HFTextVectorizer
+from cora_customer_agent.cora_config import Config
 
 
 def get_semantic_cache() -> SemanticCache:
@@ -10,9 +11,6 @@ def get_semantic_cache() -> SemanticCache:
         SemanticCache: The configured semantic cache instance.
     """
     return SemanticCache(
-        name="llmcache",
-        redis_url="redis://localhost:6379",
-        distance_threshold=0.05,
-        vectorizer=HFTextVectorizer("sentence-transformers/all-MiniLM-L6-v2"),
-        ttl=3600,
+        **Config.semantic_cache_config,
+        vectorizer=HFTextVectorizer(model=Config.embedding_model_config["model_name"]),
     )

@@ -1,18 +1,19 @@
 from mcp.server.fastmcp import FastMCP
 from langchain_core.documents import Document
 from cora_customer_agent.utils.load_vector_store import load_vector_store
+from cora_customer_agent.cora_config import Config
 
-mcp = FastMCP("CoraCustomerAgentMCP", port=8080)
+mcp = FastMCP(**Config.mcp_config)
 
 vector_store_faq = load_vector_store(
-    collection_name="company_faq",
-    init_vector_store=False,
-    documents_json_path="/home/ubuntu/dev/cora_customer_agent/company_faq.json",
+    collection_name=Config.vector_db_config["faq_collection_name"],
+    init_vector_store=Config.vector_db_config["init_vector_store"],
+    documents_json_path=Config.vector_db_config["faq_json_path"],
 )
 vector_store_products = load_vector_store(
-    collection_name="company_products",
-    init_vector_store=False,
-    documents_json_path="/home/ubuntu/dev/cora_customer_agent/company_products.json",
+    collection_name=Config.vector_db_config["company_products_collection_name"],
+    init_vector_store=Config.vector_db_config["init_vector_store"],
+    documents_json_path=Config.vector_db_config["company_products_json_path"],
 )
 
 
@@ -48,7 +49,9 @@ async def get_company_faq_answers(query: str) -> str:
         str: The content of the most relevant FAQ answer.
     """
     results = await vector_store_faq.asimilarity_search_with_relevance_scores(
-        query, k=1, score_threshold=0.4
+        query,
+        k=Config.vector_db_config["k"],
+        score_threshold=Config.vector_db_config["score_threshold"],
     )
     return get_tool_output(results)
 
@@ -65,10 +68,16 @@ async def get_product_informations(query: str) -> str:
         str: The content of the most relevant product information.
     """
     results = await vector_store_products.asimilarity_search_with_relevance_scores(
-        query, k=1, score_threshold=0.4
+        query,
+        k=Config.vector_db_config["k"],
+        score_threshold=Config.vector_db_config["score_threshold"],
     )
     return get_tool_output(results)
 
 
-if __name__ == "__main__":
+def main():
     mcp.run(transport="streamable-http")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,11 +1,13 @@
 from langchain_community.document_loaders import JSONLoader
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
+from cora_customer_agent.cora_config import Config
+from langchain_core.documents import Document
 
 _embedding_model = None
 
 
-def load_company_docs(file_path: str):
+def load_company_docs(file_path: str) -> list[Document]:
     """
     Loads company documents from a JSON file.
 
@@ -33,21 +35,22 @@ def load_company_docs(file_path: str):
     return docs
 
 
-def load_embedding_model():
+def load_embedding_model(model_name: str) -> HuggingFaceEmbeddings:
     """
     Loads or returns the cached HuggingFace embedding model.
 
     Note:
         Caching is needed to avoid re-initializing the model on each call.
 
+    Args:
+        model_name (str): Name of the HuggingFace model to load.
+
     Returns:
         HuggingFaceEmbeddings: The embedding model instance.
     """
     global _embedding_model
     if _embedding_model is None:
-        _embedding_model = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2"
-        )
+        _embedding_model = HuggingFaceEmbeddings(model_name=model_name)
     return _embedding_model
 
 
@@ -73,9 +76,11 @@ def load_vector_store(
     """
     vector_store = Chroma(
         collection_name=collection_name,
-        embedding_function=load_embedding_model(),
-        host="localhost",
-        port=8000,
+        embedding_function=load_embedding_model(
+            Config.embedding_model_config["model_name"]
+        ),
+        host=Config.vector_db_config["host"],
+        port=Config.vector_db_config["port"],
     )
 
     if init_vector_store:

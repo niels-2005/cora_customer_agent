@@ -369,6 +369,7 @@ dependencies = [
     { name = "langchain-mcp-adapters" },
     { name = "langchain-ollama" },
     { name = "mcp", extra = ["cli"] },
+    { name = "pyyaml" },
     { name = "redisvl" },
     { name = "sentence-transformers" },
 ]
@@ -384,6 +385,7 @@ requires-dist = [
     { name = "langchain-mcp-adapters", specifier = ">=0.1.12" },
     { name = "langchain-ollama", specifier = ">=1.0.0" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.21.0" },
+    { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "redisvl", specifier = ">=0.11.0" },
     { name = "sentence-transformers", specifier = ">=5.1.2" },
 ]
