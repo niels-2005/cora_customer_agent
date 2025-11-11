@@ -1,43 +1,105 @@
+# ============================================================================
+# CORA Customer Agent - Configuration File
+# ============================================================================
+# This file contains all configuration parameters for the CORA Customer Agent,
+# including MCP server, vector database, embedding models, and LLM settings.
+
+# ----------------------------------------------------------------------------
+# MCP Server Configuration
+# ----------------------------------------------------------------------------
+# Configuration for the FastMCP server that provides tools for the agent.
 mcp_config:
-  name: "CoraCustomerAgentMCP"
-  port: 8080
-  host: "127.0.0.1"
+  name: "CoraCustomerAgentMCP" 
+  port: 8080                     
+  host: "127.0.0.1"              
 
+# ----------------------------------------------------------------------------
+# MCP Client Configuration
+# ----------------------------------------------------------------------------
+# Configuration for the MCP client that communicates with the MCP server.
+# IMPORTANT: Host and port must match the mcp_config! (format: http://host:port/mcp)
 mcp_client_config:
-  url: "http://127.0.0.1:8080/mcp"
+  url: "http://127.0.0.1:8080/mcp" 
 
+# ----------------------------------------------------------------------------
+# Vector Database Configuration (ChromaDB)
+# ----------------------------------------------------------------------------
+# Configuration for ChromaDB, which stores the vectorized documents.
+# IMPORTANT: Host and port must match the docker-compose.yaml (chroma service)!
 vector_db_config:
-  host: "127.0.0.1"
-  port: 8000
+  host: "127.0.0.1"  
+  port: 8000         
 
-  faq_collection_name: "company_faq" 
-  faq_json_path: "src/cora_customer_agent/company_docs/company_faq.json"
+  # --- FAQ Collection ---
+  faq_collection_name: "company_faq"  
+  faq_json_path: "src/cora_customer_agent/company_docs/company_faq.json"  # Path to JSON file with FAQ documents to be vectorized
 
-  company_products_collection_name: "company_products"
-  company_products_json_path: "src/cora_customer_agent/company_docs/company_products.json"
+  # --- Company Products Collection ---
+  company_products_collection_name: "company_products" 
+  company_products_json_path: "src/cora_customer_agent/company_docs/company_products.json"  # Path to JSON file with product documents to be vectorized
 
+  # --- Vector Store Initialization ---
+  # IMPORTANT: Set to 'true' if no documents are in the vector DB yet (e.g., on first start) or when updating documents.
+  # Keep as 'false' afterwards to avoid re-initialization.
   init_vector_store: false
 
-  k: 1
-  score_threshold: 0.4
+  # --- MCP Tool Parameters ---
+  # These parameters are used by the MCP tools (get_company_faq_answers, get_product_informations):
+  k: 1                    # Number of documents to retrieve during a search
+  score_threshold: 0.4    # Minimum relevance score (0.4 = 40%). Documents below this score will not be returned.
 
+# ----------------------------------------------------------------------------
+# Embedding Model Configuration
+# ----------------------------------------------------------------------------
+# Configuration for the embedding model used for vectorization. 
+# IMPORTANT: The model needs to be a HuggingFace embedding model
+# NOTE: Currently, two separate embedding models are loaded into memory:
+#   - One for the Redis semantic cache
+#   - One for ChromaDB
 embedding_model_config:
-  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  model_name: "sentence-transformers/all-MiniLM-L6-v2" 
 
+# ----------------------------------------------------------------------------
+# Semantic Cache Configuration (Redis)
+# ----------------------------------------------------------------------------
+# Configuration for the Redis semantic cache, which caches semantically similar queries.
+# IMPORTANT: redis_url must match the docker-compose.yaml (redis service)!
 semantic_cache_config:
-  name: "llmcache"
+  name: "llmcache"                    
   redis_url: "redis://localhost:6379" 
-  distance_threshold: 0.05
-  ttl: 3600 
+  distance_threshold: 0.05            # Threshold for semantic similarity (0.05 = 95% similarity). Cache is used when similarity is higher.
+  ttl: 3600                           # Time-to-live in seconds (3600 = 1 hour). Cache entries are automatically deleted after this time.
 
-
+# ----------------------------------------------------------------------------
+# Ollama LLM Configuration
+# ----------------------------------------------------------------------------
+# Configuration for the Ollama Large Language Model.
+# IMPORTANT: The model must be downloaded beforehand using Ollama (e.g., 'ollama pull qwen3:14b') and needs to support tools
+# Find models at: https://ollama.com/search?c=tools
 ollama_config:
-  model: "qwen3:14b"
-  temperature: 0.5
-  top_p: 0.9
-  top_k: 50
-  reasoning: false 
-  num_predict: 512 
-  num_ctx: 8192
-  validate_model_on_init: true 
+  model: "qwen3:14b"  
+  
+  # --- Sampling Parameters ---
+  temperature: 0.5    # Controls randomness of responses (0.0 = deterministic, 1.0 = very creative, above 1.0 = extremely creative)
+  top_p: 0.9          # Nucleus sampling: Only considers the most likely tokens up to a cumulative probability of top_p
+  top_k: 50           # Top-K sampling: Limits selection to the K most likely tokens
+  
+  # --- Reasoning Parameter ---
+  # Controls whether the model should perform reasoning steps.
+  # Examples:
+  # - For qwen3:14b: true or false
+  # - For gpt-oss:20b: "low", "medium", or "high"
+  reasoning: false
+  
+  # --- Token Limits ---
+  num_predict: 512    # Maximum number of tokens to generate per response
+  num_ctx: 8192       # Size of the context window (limited to 8192 due to hardware constraints)
+  
+  # --- Model Validation ---
+  # Validates at startup whether the specified model is available.
+  validate_model_on_init: true
+  
+  # --- Keep Alive ---
+  # Time in seconds to keep the model in memory (1000s = ~16.7 minutes).
+  # Prevents the model from being removed from memory after each request.
   keep_alive: 1000
