@@ -77,7 +77,7 @@ semantic_cache_config:
 # IMPORTANT: The model must be downloaded beforehand using Ollama (e.g., 'ollama pull qwen3:14b') and needs to support tools
 # Find models at: https://ollama.com/search?c=tools
 ollama_config:
-  model: "qwen3:14b"  
+  model: "llama3.2:1b"  
   
   # --- Sampling Parameters ---
   temperature: 0.5    # Controls randomness of responses (0.0 = deterministic, 1.0 = very creative, above 1.0 = extremely creative)
@@ -86,9 +86,11 @@ ollama_config:
   
   # --- Reasoning Parameter ---
   # Controls whether the model should perform reasoning steps.
+  # reasoning: true can only be used with models that support reasoning with tools.
   # Examples:
   # - For qwen3:14b: true or false
   # - For gpt-oss:20b: "low", "medium", or "high"
+  # - For llama.32:1b: false (no reasoning support)
   reasoning: false
   
   # --- Token Limits ---

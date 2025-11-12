@@ -2,6 +2,9 @@ from cora_customer_agent.utils.get_agent import get_agent
 from cora_customer_agent.utils.get_semantic_cache import get_semantic_cache
 from pydantic import BaseModel
 import gradio as gr
+from dotenv import load_dotenv
+
+load_dotenv()
 
 _semantic_cache = get_semantic_cache()
 
