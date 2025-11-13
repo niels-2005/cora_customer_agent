@@ -251,21 +251,21 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
 
 ### Known Limitations
 - **In-Memory Conversations** - Session state lost on restart (no persistent database).  
-  <br>**Possible Solution:** Implement PostgreSQL integration for persistent conversation history and user accounts.
+  **Possible Solution:** Implement PostgreSQL integration for persistent conversation history and user accounts.
 
 - **Single-User Frontend** - No authentication or multi-user support.  
-  <br>**Possible Solution:** Add authentication system with user login and personalized chat history.
+  **Possible Solution:** Add authentication system with user login and personalized chat history.
 
 - **Limited Reasoning Display** - Reasoning steps not shown in UI when reasoning is enabled
 
 - **Manual Model Management** - Ollama models must be pulled separately
 
 - **Semantic Cache Personalization Issue** - The cache stores responses with personalized greetings (e.g., "Hi Niels!"). When another user with a different name asks the same question, they receive the cached response with the wrong name. This occurs because the system prompt is dynamically injected with the user's name.  
-  <br>**Possible Solutions:** Remove `user_name` from the context, implement user-specific cache keys (expensive), or exclude personalized responses from caching. Semantic Cache was implemented for learning purposes.
+  **Possible Solutions:** Remove `user_name` from the context, implement user-specific cache keys (expensive), or exclude personalized responses from caching. Semantic Cache was implemented for learning purposes.
 
 - **Hardcoded RAG Parameters** - The number of retrieved documents (`k=1`) and similarity threshold (`0.4`) are fixed in the configuration. This one-size-fits-all approach may not be optimal for all queries—some questions might benefit from retrieving multiple documents for comprehensive answers.  
-  <br>**Possible Solution:** Allow the agent to dynamically determine the number of documents to retrieve based on query complexity. If the agent can dynamically set `k`, a mechanism is needed to prevent excessive retrieval (e.g., `k=100`), which introduces noise and degrades response quality.  
-  <br>**Possible Solution:** Implement bounded retrieval (e.g., `min=1, max=10`) and add an embedding-based reranker to filter and prioritize the most relevant documents beyond simple similarity scores.
+  **Possible Solution:** Allow the agent to dynamically determine the number of documents to retrieve based on query complexity. If the agent can dynamically set `k`, a mechanism is needed to prevent excessive retrieval (e.g., `k=100`), which introduces noise and degrades response quality.  
+  **Possible Solution:** Implement bounded retrieval (e.g., `min=1, max=10`) and add an embedding-based reranker to filter and prioritize the most relevant documents beyond simple similarity scores.
 
 ### Future Improvements
 
