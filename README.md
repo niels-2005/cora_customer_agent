@@ -152,13 +152,6 @@ docker compose up -d
 📋 **Review the configuration file:**  
 Most settings are pre-configured and work out of the box. However, it's recommended to review `src/cora_customer_agent/cora_config.yaml` to understand the customization options.
 
-**Key configuration sections:**
-- **MCP Server** - Port and host settings
-- **Vector Database** - Collection names, paths, and initialization flags
-- **Embedding Model** - HuggingFace model selection
-- **Semantic Cache** - Redis connection and similarity thresholds
-- **Ollama LLM** - Model selection and inference parameters
-
 ⚠️ **First-Time Setup:** If running for the first time, set `init_vector_store: true` (default) in the config to populate ChromaDB with documents. After the first run, set it back to `false` to avoid re-initialization.
 
 ---
