@@ -186,23 +186,6 @@ run_gradio
 
 ---
 
-### Cleanup
-
-To completely remove all Docker containers, volumes, and images created by this project:
-
-```bash
-docker compose down -v --rmi all
-```
-
-**Remove the GitHub repository:**
-
-```bash
-cd ..
-rm -rf CoraCustomerAgent
-```
-
----
-
 ## 🌐 Access Points
 
 | Service | URL | Description |
@@ -270,6 +253,23 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
 
 Example trace:
 ![LangSmith Trace Example](readme_images/langsmith_trace.png)
+
+---
+
+### Cleanup
+
+To completely remove all Docker containers, volumes, and images created by this project:
+
+```bash
+docker compose down -v --rmi all
+```
+
+**Remove the GitHub repository:**
+
+```bash
+cd ..
+rm -rf CoraCustomerAgent
+```
 
 ---
 
