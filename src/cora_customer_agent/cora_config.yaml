@@ -41,7 +41,7 @@ vector_db_config:
   # --- Vector Store Initialization ---
   # IMPORTANT: Set to 'true' if no documents are in the vector DB yet (e.g., on first start) or when updating documents.
   # Keep as 'false' afterwards to avoid re-initialization.
-  init_vector_store: false
+  init_vector_store: true
 
   # --- MCP Tool Parameters ---
   # These parameters are used by the MCP tools (get_company_faq_answers, get_product_informations):

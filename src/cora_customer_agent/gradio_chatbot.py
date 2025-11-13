@@ -40,7 +40,7 @@ async def generate_response(message, history):
         str: Partial response content as tokens are generated.
     """
     try:
-        # If Tokenizer available that supports async, switch to "await _semantic_cache.acheck(message)"
+        # If embedding model available that supports async, switch to "await _semantic_cache.acheck(message)"
         cache_hit = _semantic_cache.check(message)
         if cache_hit:
             yield cache_hit[0]["response"]
@@ -58,7 +58,9 @@ async def generate_response(message, history):
                     }
                 ]
             },
-            config={"configurable": {"thread_id": "1"}},
+            config={
+                "configurable": {"thread_id": "1"}
+            },  # config is needed because we use InMemorySaver for checkpointing chat history
             stream_mode="messages",
             context=UserContext(
                 user_name="Niels"
@@ -73,7 +75,7 @@ async def generate_response(message, history):
                 yield full_response
 
         if full_response.strip():
-            # If Tokenizer availdable that supports async, switch to "await _semantic_cache.astore(...)"
+            # If embedding model available that supports async, switch to "await _semantic_cache.astore(...)"
             _semantic_cache.store(
                 prompt=message,
                 response=full_response,
