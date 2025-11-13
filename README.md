@@ -60,7 +60,6 @@ The goal is to improve customer satisfaction while reducing support team workloa
 - **Streaming Responses** - Token-by-token output for responsive user experience
 
 ### ⚡ Redis Semantic Cache
-- **Query Caching** - Stores responses to semantically similar questions
 - **Reduced Latency** - Instant responses for cached queries
 - **Cost Optimization** - Minimizes LLM inference calls
 - **TTL Management** - Automatic cache expiration after configurable time periods
