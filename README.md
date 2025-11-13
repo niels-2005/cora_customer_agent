@@ -271,6 +271,7 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
 
 #### Evaluation & Testing
 - **AI-as-a-Judge Evaluation Framework** - Implement comprehensive evaluation system for model quality assessment:
+  - **Agent Workflow Evaluation** - Analyze agent decision-making and tool usage
   - **Input/Output Evaluation** - Compare agent responses against reference outputs
   - **RAG Retrieval Evaluation** - Assess relevance and quality of retrieved documents
   - **Edge Case Testing** - Test handling of non-existent products, ambiguous queries, etc.
