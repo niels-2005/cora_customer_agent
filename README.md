@@ -6,12 +6,15 @@
 
 ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-1E88E5?style=for-the-badge&logo=chainlink&logoColor=white)
+![LangSmith](https://img.shields.io/badge/LangSmith-FFE766?style=for-the-badge&logo=chainlink&logoColor=black)
+![Hugging Face](https://img.shields.io/badge/HuggingFace-FFCC00?style=for-the-badge&logo=huggingface&logoColor=black)
 ![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP-FF6B6B?style=for-the-badge&logo=protocol&logoColor=white)
 ![Gradio](https://img.shields.io/badge/Gradio-FF7C00?style=for-the-badge&logo=gradio&logoColor=white)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6584?style=for-the-badge&logo=database&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6584?style=for-the-badge&logo=chromadb&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
 
 </div>
 
@@ -157,7 +160,7 @@ Most settings are pre-configured and work out of the box. However, it's recommen
 - **Semantic Cache** - Redis connection and similarity thresholds
 - **Ollama LLM** - Model selection and inference parameters
 
-⚠️ **First-Time Setup:** If running for the first time, set `init_vector_store: true` in the config to populate ChromaDB with documents. After the first run, set it back to `false` to avoid re-initialization.
+⚠️ **First-Time Setup:** If running for the first time, set `init_vector_store: true` (default) in the config to populate ChromaDB with documents. After the first run, set it back to `false` to avoid re-initialization.
 
 ---
 
@@ -247,25 +250,31 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
 ## 🚧 Known Limitations & Future Improvements
 
 ### Known Limitations
-- **In-Memory Conversations** - Session state lost on restart (no persistent database)
-- **Single-User Frontend** - No authentication or multi-user support
+- **In-Memory Conversations** - Session state lost on restart (no persistent database).  
+  **Possible Solution:** Implement PostgreSQL integration for persistent conversation history and user accounts.
+
+- **Single-User Frontend** - No authentication or multi-user support.  
+  **Possible Solution:** Add authentication system with user login and personalized chat history.
+
 - **Limited Reasoning Display** - Reasoning steps not shown in UI when reasoning is enabled
+
 - **Manual Model Management** - Ollama models must be pulled separately
-- **Semantic Cache Personalization Issue** - The cache stores responses with personalized greetings (e.g., "Hi Niels!"). When another user with a different name asks the same question, they receive the cached response with the wrong name. This occurs because the system prompt is dynamically injected with the user's name. **Possible Solutions:** Remove `user_name` from the context, implement user-specific cache keys (expensive), or exclude personalized responses from caching. Semantic Cache was implemented for learning purposes.
-- **Hardcoded RAG Parameters** - The number of retrieved documents (`k=1`) and similarity threshold (`0.4`) are fixed in the configuration. This one-size-fits-all approach may not be optimal for all queries—some questions might benefit from retrieving multiple documents for comprehensive answers. **Possible Solution:** Allow the agent to dynamically determine the number of documents to retrieve based on query complexity. If the agent can dynamically set `k`, a mechanism is needed to prevent excessive retrieval (e.g., `k=100`), which introduces noise and degrades response quality. **Possible Solution:** Implement bounded retrieval (e.g., `min=1, max=10`) and add an embedding-based reranker to filter and prioritize the most relevant documents beyond simple similarity scores.
+
+- **Semantic Cache Personalization Issue** - The cache stores responses with personalized greetings (e.g., "Hi Niels!"). When another user with a different name asks the same question, they receive the cached response with the wrong name. This occurs because the system prompt is dynamically injected with the user's name.  
+  **Possible Solutions:** Remove `user_name` from the context, implement user-specific cache keys (expensive), or exclude personalized responses from caching. Semantic Cache was implemented for learning purposes.
+
+- **Hardcoded RAG Parameters** - The number of retrieved documents (`k=1`) and similarity threshold (`0.4`) are fixed in the configuration. This one-size-fits-all approach may not be optimal for all queries—some questions might benefit from retrieving multiple documents for comprehensive answers.  
+  **Possible Solution:** Allow the agent to dynamically determine the number of documents to retrieve based on query complexity. If the agent can dynamically set `k`, a mechanism is needed to prevent excessive retrieval (e.g., `k=100`), which introduces noise and degrades response quality.  
+  **Possible Solution:** Implement bounded retrieval (e.g., `min=1, max=10`) and add an embedding-based reranker to filter and prioritize the most relevant documents beyond simple similarity scores.
 
 ### Future Improvements
-
-#### Data Persistence & User Management
-- **PostgreSQL Integration** - Persistent conversation history and user accounts
-- **Authentication System** - User login and personalized chat history
 
 #### Evaluation & Testing
 - **AI-as-a-Judge Evaluation Framework** - Implement comprehensive evaluation system for model quality assessment:
   - **Input/Output Evaluation** - Compare agent responses against reference outputs
   - **RAG Retrieval Evaluation** - Assess relevance and quality of retrieved documents
   - **Edge Case Testing** - Test handling of non-existent products, ambiguous queries, etc.
-  - **Implementation Resources:** Review [LangSmith Documentation](https://docs.smith.langchain.com), [OpenAI Evals](https://github.com/openai/evals), and [Agent Evals](https://github.com/langchain-ai/agent-evals) repositories
+  - **Implementation Resources:** Review [LangSmith Documentation](https://docs.smith.langchain.com), [openevals](https://github.com/langchain-ai/openevals), and [agentevals](https://github.com/langchain-ai/agentevals) repositories
   - Note: Not implemented due to hardware limitations
 - **Model & Embedding Experimentation** - Conduct systematic testing with different embedding models and LLMs to optimize performance (hardware constraints prevented comprehensive testing)
 
