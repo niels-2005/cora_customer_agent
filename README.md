@@ -247,65 +247,27 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
 
 ---
 
-## 🚧 Known Limitations & Future Improvements
+## 🚧 Future Improvements
 
-### Known Limitations
-- **In-Memory Conversations** - Session state lost on restart (no persistent database).  
-  **Possible Solution:** Implement PostgreSQL integration for persistent conversation history and user accounts.
+This project is a prototype designed for learning and demonstration purposes. If further development were to continue, the following enhancements would be prioritized:
 
-- **Single-User Frontend** - No authentication or multi-user support.  
-  **Possible Solution:** Add authentication system with user login and personalized chat history.
-
-- **Limited Reasoning Display** - Reasoning steps not shown in UI when reasoning is enabled
-
-- **Manual Model Management** - Ollama models must be pulled separately
-
-- **Semantic Cache Personalization Issue** - The cache stores responses with personalized greetings (e.g., "Hi Niels!"). When another user with a different name asks the same question, they receive the cached response with the wrong name. This occurs because the system prompt is dynamically injected with the user's name.  
-  **Possible Solutions:** Remove `user_name` from the context, implement user-specific cache keys (expensive), or exclude personalized responses from caching. Semantic Cache was implemented for learning purposes.
-
-- **Hardcoded RAG Parameters** - The number of retrieved documents (`k=1`) and similarity threshold (`0.4`) are fixed in the configuration. This one-size-fits-all approach may not be optimal for all queries—some questions might benefit from retrieving multiple documents for comprehensive answers.  
-  **Possible Solution:** Allow the agent to dynamically determine the number of documents to retrieve based on query complexity. If the agent can dynamically set `k`, a mechanism is needed to prevent excessive retrieval (e.g., `k=100`), which introduces noise and degrades response quality.  
-  **Possible Solution:** Implement bounded retrieval (e.g., `min=1, max=10`) and add an embedding-based reranker to filter and prioritize the most relevant documents beyond simple similarity scores.
-
-### Future Improvements
-
-#### Evaluation & Testing
-- **AI-as-a-Judge Evaluation Framework** - Implement comprehensive evaluation system for model quality assessment:
-  - **Agent Workflow Evaluation** - Analyze agent decision-making and tool usage
-  - **Input/Output Evaluation** - Compare agent responses against reference outputs
-  - **RAG Retrieval Evaluation** - Assess relevance and quality of retrieved documents
-  - **Edge Case Testing** - Test handling of non-existent products, ambiguous queries, etc.
-  - **Implementation Resources:** Review [LangSmith Documentation](https://docs.smith.langchain.com), [openevals](https://github.com/langchain-ai/openevals), and [agentevals](https://github.com/langchain-ai/agentevals) repositories
-  - Note: Not implemented due to hardware limitations
-- **Model & Embedding Experimentation** - Conduct systematic testing with different embedding models and LLMs to optimize performance (hardware constraints prevented comprehensive testing)
-
-#### Observability & Monitoring
-- **Langfuse Integration** - For organizations requiring fully open-source observability, consider [Langfuse](https://langfuse.com) as an alternative to LangSmith (SaaS). Provides self-hosted tracing, evaluation, and prompt management.
-
-#### Context Management
-- **Context Window Handling** - Implement intelligent context management for production systems:
-  - Monitor token usage approaching context limits (e.g., 128k tokens)
-  - Add for example **Summarization Middleware** to condense conversation history at ~80-90% capacity
-  - Preserve critical information while staying within model constraints
-  - Note: Currently ignored due to hardware limitations
-
-#### Feature Extensions
-- **Enhanced MCP Tools** - Extend the MCP server with additional capabilities:
-  - Product recommendation engine
-  - Order tracking integration
-  - Personalized product suggestions based on user history
-  - Smart home device compatibility checker
-- **User Profile Management MCP Server** - Separate MCP server (following separation of concerns) allowing users to update personal information (address, preferences, etc.) via the chatbot. Note: This requires careful evaluation and introduces security risks that must be thoroughly addressed.
+- **PostgreSQL Integration** - Implement persistent conversation history and user accounts (currently in-memory state lost on restart)
+- **Authentication System** - Add user login and personalized chat history (currently single-user frontend)
+- **Reasoning Display in UI** - Show agent reasoning steps in the frontend for transparency (currently hidden when enabled)
+- **Automated Model Management** - Implement automatic Ollama model download and version management (currently manual)
+- **Semantic Cache Optimization** - Fix personalization issue where cached responses contain wrong user names due to dynamic system prompts. Solutions: user-specific cache keys, context-aware caching, or exclude personalized responses. Note: Semantic cache implemented for learning purposes
+- **Dynamic RAG Parameters** - Allow agent to dynamically determine document retrieval count based on query complexity with bounded limits (min=1, max=10) and embedding-based reranker. Currently hardcoded (`k=1`, threshold=`0.4`)
+- **AI-as-a-Judge Evaluation Framework** - Implement comprehensive evaluation including agent workflow analysis, input/output comparison against reference outputs, RAG retrieval quality assessment, and edge case testing (non-existent products, ambiguous queries). Resources: [LangSmith Documentation](https://docs.smith.langchain.com), [openevals](https://github.com/langchain-ai/openevals), and [agentevals](https://github.com/langchain-ai/agentevals) repositories. Note: Not implemented due to hardware limitations
+- **Model & Embedding Experimentation** - Systematic testing with different embedding models and LLMs to optimize performance (hardware constraints prevented comprehensive testing)
+- **Langfuse Integration** - For fully open-source observability, consider [Langfuse](https://langfuse.com) as an alternative to LangSmith (SaaS) for self-hosted tracing, evaluation, and prompt management
+- **Context Window Handling** - Implement intelligent token usage monitoring with summarization middleware at ~80-90% capacity to preserve critical information while staying within model constraints (currently ignored due to hardware limitations)
+- **Enhanced MCP Tools** - Extend the MCP server with product recommendation engine, order tracking integration, personalized suggestions based on user history, and smart home device compatibility checker
+- **User Profile Management MCP Server** - Separate MCP server (separation of concerns) for updating personal information (address, preferences) via chatbot. Note: Requires careful evaluation and introduces security risks that must be thoroughly addressed
 - **Voice Interface** - Speech-to-text and text-to-speech capabilities for accessibility
 - **Image Support** - Visual product catalogs with image embeddings for multimodal interactions
 - **Feedback Loop** - User ratings to improve responses over time through reinforcement learning
-
-#### Cloud & API Integration
-- **API-Based Model Inference** - Consider using hosted APIs (OpenAI, Anthropic, etc.) for:
-  - Improved performance and reliability
-  - Access to frontier models
-  - Reduced infrastructure overhead
-  - ⚠️ **Critical Security Note:** Ensure no sensitive customer data (PII, payment info, personal details) is sent to external APIs in production. Implement strict data filtering and anonymization.
+- **API-Based Model Inference** - Consider hosted APIs (OpenAI, Anthropic) for improved performance, access to frontier models, and reduced infrastructure overhead. ⚠️ **Critical:** Ensure no sensitive customer data (PII, payment info, personal details) is sent to external APIs in production through strict data filtering and anonymization
+- **And probably much more!**
 
 ---
 
