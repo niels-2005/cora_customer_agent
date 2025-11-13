@@ -192,8 +192,14 @@ run_gradio
 To completely remove all Docker containers, volumes, and images created by this project:
 
 ```bash
-# Stop and remove containers, delete volumes, and remove images
 docker compose down -v --rmi all
+```
+
+**Remove the GitHub repository:**
+
+```bash
+cd ..
+rm -rf CoraCustomerAgent
 ```
 
 ---
