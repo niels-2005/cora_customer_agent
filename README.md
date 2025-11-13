@@ -172,7 +172,7 @@ run_mcp
 
 #### Start the Gradio Frontend (in a new terminal)
 ```bash
-# Start the Gradio interface
+# Start the Gradio interface, the MCP server needs to be running first to avoid connection errors
 run_gradio
 ```
 
