@@ -28,6 +28,8 @@ The goal is to improve customer satisfaction while reducing support team workloa
 
 ---
 
+https://github.com/user-attachments/assets/153ed9e6-e92c-4080-a221-eba696d828c2
+
 ## ✨ Key Features
 
 ### 🧠 Agentic AI with LangChain & Ollama
