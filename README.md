@@ -262,7 +262,7 @@ Since November 13, 2025, this project is no longer actively developed. However, 
 - **Langfuse Integration** - For fully open-source observability, consider [Langfuse](https://langfuse.com) as an alternative to LangSmith (SaaS) for self-hosted tracing, evaluation, and prompt management
 - **Context Window Handling** - Implement intelligent token usage monitoring with summarization middleware at ~80-90% capacity to preserve critical information while staying within model constraints (currently ignored due to hardware limitations)
 - **Enhanced MCP Tools** - Extend the MCP server with product recommendation engine, order tracking integration, personalized suggestions based on user history, and smart home device compatibility checker
-- **User Profile Management MCP Server** - Separate MCP server (separation of concerns) for updating personal information (address, preferences) via chatbot. Requires careful evaluation and introduces security risks that must be thoroughly addressed
+- **User Profile Management MCP Server** - Separate MCP server (separation of concerns) for updating personal information (address, preferences) via chatbot.Requires careful evaluation and introduces security risks that must be thoroughly addressed
 - **Voice Interface** - Speech-to-text and text-to-speech capabilities for accessibility
 - **Image Support** - Visual product catalogs with image embeddings for multimodal interactions
 - **Feedback Loop** - User ratings to improve responses over time through reinforcement learning
