@@ -270,7 +270,7 @@ Since November 13, 2025, this project is no longer actively developed. However, 
 - **Image Support** - Visual product catalogs with image embeddings for multimodal interactions
 - **Feedback Loop** - User ratings to improve responses over time 
 - **API-Based Model Inference** - Consider hosted APIs (OpenAI, Anthropic) for improved performance, access to frontier models, and reduced infrastructure overhead. <br>
-  ⚠️ **Critical:** Ensure no sensitive customer data (PII, payment info, personal details) is sent to external APIs in production through strict data filtering and anonymization
+  ⚠️ **Critical:** Ensure no sensitive customer data (PII, payment info, personal details) is sent to external APIs through strict data filtering and anonymization
 - **And probably much more!**
 
 ---
