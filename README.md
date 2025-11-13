@@ -165,7 +165,7 @@ Most settings are pre-configured and work out of the box. However, it's recommen
 
 #### Start the MCP Server
 ```bash
-# Using the configured script entry point
+# Start the MCP Server
 run_mcp
 ```
 
@@ -182,7 +182,7 @@ run_gradio
 | Service | URL | Description |
 |---------|-----|--------------|
 | **Gradio Chat UI** | http://127.0.0.1:7860 | Interactive chatbot interface |
-| **MCP Server** | http://127.0.0.1:8080 | Tool server for agent |
+| **MCP Server** | http://127.0.0.1:8080 | Tool server for agent (no UI) |
 | **ChromaDB** | http://127.0.0.1:8000 | Vector database (no UI) |
 | **Redis** | http://127.0.0.1:6379 | Semantic cache (no UI) |
 
@@ -190,21 +190,20 @@ run_gradio
 
 ## 🧪 Testing the Agent
 
+You can find the simulated company data in `src/cora_customer_agent/company_docs`
+
 Once both services are running, try these example queries in the Gradio interface:
 
 **FAQ Questions:**
-- "How can I place an order?"
-- "What payment methods do you accept?"
-- "How does the return process work?"
-- "Do you offer carbon-neutral delivery?"
+- "How long does delivery take?"
+- "How secure are my payment details?"
 
 **Product Questions:**
 - "Tell me about the HiveSmart Light Bulb A60"
 - "Show me details about the HiveCam 360 Pro"
-- "What are the features of the PulseVR One Headset?"
 
 **Conversational Memory:**
-- "How can I place an order?"
+- "How long does delivery take?"
 - "What was my first message?" (tests memory)
 
 ---
@@ -250,17 +249,16 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
 ### Known Limitations
 - **In-Memory Conversations** - Session state lost on restart (no persistent database)
 - **Single-User Frontend** - No authentication or multi-user support
-- **Limited Reasoning Display** - Reasoning steps not shown in UI when enabled
+- **Limited Reasoning Display** - Reasoning steps not shown in UI when reasoning is enabled
 - **Manual Model Management** - Ollama models must be pulled separately
-- **Semantic Cache Personalization Issue** - The cache stores responses with personalized greetings (e.g., "Hi Niels!"). When another user with a different name asks the same question, they receive the cached response with the wrong name. This occurs because the system prompt is dynamically injected with the user's name. **Possible Solutions:** Remove `user_name` from the context, implement user-specific cache keys, or exclude personalized responses from caching. Semantic Cache was implemented for learning purposes.
-- **Hardcoded RAG Parameters** - The number of retrieved documents (`k=1`) and similarity threshold (`0.4`) are fixed in the configuration. This one-size-fits-all approach may not be optimal for all queries—some questions might benefit from retrieving multiple documents for comprehensive answers. **Possible Solution:** Allow the agent to dynamically determine the number of documents to retrieve based on query complexity. If the agent can dynamically set `k`, a mechanism is needed to prevent excessive retrieval (e.g., `k=100`), which introduces noise and degrades response quality. **Possible Solutions:** Implement bounded retrieval (e.g., `min=1, max=10`) and add an embedding-based reranker to filter and prioritize the most relevant documents beyond simple similarity scores.
+- **Semantic Cache Personalization Issue** - The cache stores responses with personalized greetings (e.g., "Hi Niels!"). When another user with a different name asks the same question, they receive the cached response with the wrong name. This occurs because the system prompt is dynamically injected with the user's name. **Possible Solutions:** Remove `user_name` from the context, implement user-specific cache keys (expensive), or exclude personalized responses from caching. Semantic Cache was implemented for learning purposes.
+- **Hardcoded RAG Parameters** - The number of retrieved documents (`k=1`) and similarity threshold (`0.4`) are fixed in the configuration. This one-size-fits-all approach may not be optimal for all queries—some questions might benefit from retrieving multiple documents for comprehensive answers. **Possible Solution:** Allow the agent to dynamically determine the number of documents to retrieve based on query complexity. If the agent can dynamically set `k`, a mechanism is needed to prevent excessive retrieval (e.g., `k=100`), which introduces noise and degrades response quality. **Possible Solution:** Implement bounded retrieval (e.g., `min=1, max=10`) and add an embedding-based reranker to filter and prioritize the most relevant documents beyond simple similarity scores.
 
 ### Future Improvements
 
 #### Data Persistence & User Management
 - **PostgreSQL Integration** - Persistent conversation history and user accounts
 - **Authentication System** - User login and personalized chat history
-- **User Profile Management MCP Server** - Separate MCP server (following separation of concerns) allowing users to update personal information (address, preferences, etc.) via the chatbot. Note: This requires careful evaluation and introduces security risks that must be thoroughly addressed.
 
 #### Evaluation & Testing
 - **AI-as-a-Judge Evaluation Framework** - Implement comprehensive evaluation system for model quality assessment:
@@ -277,7 +275,7 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
 #### Context Management
 - **Context Window Handling** - Implement intelligent context management for production systems:
   - Monitor token usage approaching context limits (e.g., 128k tokens)
-  - Add **Summarization Middleware** to condense conversation history at ~80-90% capacity
+  - Add for example **Summarization Middleware** to condense conversation history at ~80-90% capacity
   - Preserve critical information while staying within model constraints
   - Note: Currently ignored due to hardware limitations
 
@@ -287,6 +285,7 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
   - Order tracking integration
   - Personalized product suggestions based on user history
   - Smart home device compatibility checker
+- **User Profile Management MCP Server** - Separate MCP server (following separation of concerns) allowing users to update personal information (address, preferences, etc.) via the chatbot. Note: This requires careful evaluation and introduces security risks that must be thoroughly addressed.
 - **Voice Interface** - Speech-to-text and text-to-speech capabilities for accessibility
 - **Image Support** - Visual product catalogs with image embeddings for multimodal interactions
 - **Feedback Loop** - User ratings to improve responses over time through reinforcement learning
