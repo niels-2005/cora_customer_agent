@@ -28,8 +28,6 @@ The goal is to improve customer satisfaction while reducing support team workloa
 
 ---
 
-https://github.com/user-attachments/assets/153ed9e6-e92c-4080-a221-eba696d828c2
-
 ## ✨ Key Features
 
 ### 🧠 Agentic AI with LangChain & Ollama
@@ -84,6 +82,21 @@ https://github.com/user-attachments/assets/153ed9e6-e92c-4080-a221-eba696d828c2
 - **One-Command Setup** - `docker-compose up -d` launches all services
 - **Isolated Services** - ChromaDB and Redis run in separate containers
 - **Persistent Volumes** - Data survives container restarts
+
+---
+
+## 🎬 Demo
+
+The following demo showcases CORA's key capabilities:
+
+https://github.com/user-attachments/assets/153ed9e6-e92c-4080-a221-eba696d828c2
+
+**Demo Highlights:**
+- **Left Panel:** Gradio chat interface where users interact with CORA
+- **Right Panel:** Terminal displaying the MCP server logs in real-time
+- **Message 2:** _"Tell me about the HiveSmart Light Bulb A60"_ - Demonstrates MCP tool calling (`get_product_informations`) visible in the terminal
+- **Message 3:** _"What was my first message to you?"_ - Showcases conversational memory with full chat context retention
+- **Message 4:** _"How long does delivery take?"_ - Illustrates Redis semantic cache hit for instant response
 
 ---
 
