@@ -6,7 +6,7 @@ import yaml
 logger = logging.getLogger(__name__)
 
 
-def load_yaml_config(file_path: str) -> Any:
+def get_yaml_config(file_path: str) -> Any:
     """Load a YAML configuration file.
 
     Args:

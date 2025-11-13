@@ -7,7 +7,7 @@ from cora_customer_agent.cora_config import Config
 logger = logging.getLogger(__name__)
 
 
-def load_ollama_llm() -> ChatOllama:
+def get_ollama_llm() -> ChatOllama:
     """
     Loads and configures a ChatOllama model instance.
 

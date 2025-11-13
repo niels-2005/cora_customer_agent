@@ -5,7 +5,7 @@ from langgraph.checkpoint.memory import InMemorySaver
 
 from .get_agent_middleware import get_agent_middleware
 from .get_mcp_client import get_mcp_client
-from .load_ollama_llm import load_ollama_llm
+from .get_ollama_llm import get_ollama_llm
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ async def get_agent():
         client = get_mcp_client()
         tools = await client.get_tools()
         return create_agent(
-            model=load_ollama_llm(),
+            model=get_ollama_llm(),
             tools=tools,
             middleware=get_agent_middleware(),
             checkpointer=InMemorySaver(),

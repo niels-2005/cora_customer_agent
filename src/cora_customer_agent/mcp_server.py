@@ -4,18 +4,19 @@ from langchain_core.documents import Document
 from mcp.server.fastmcp import FastMCP
 
 from cora_customer_agent.cora_config import Config
-from cora_customer_agent.utils.load_vector_store import load_vector_store
+from cora_customer_agent.utils.get_vector_store import get_vector_store
 
 logger = logging.getLogger(__name__)
 
 mcp = FastMCP(**Config.mcp_config)
 
-vector_store_faq = load_vector_store(
+vector_store_faq = get_vector_store(
     collection_name=Config.vector_db_config["faq_collection_name"],
     init_vector_store=Config.vector_db_config["init_vector_store"],
     documents_json_path=Config.vector_db_config["faq_json_path"],
 )
-vector_store_products = load_vector_store(
+
+vector_store_products = get_vector_store(
     collection_name=Config.vector_db_config["company_products_collection_name"],
     init_vector_store=Config.vector_db_config["init_vector_store"],
     documents_json_path=Config.vector_db_config["company_products_json_path"],
