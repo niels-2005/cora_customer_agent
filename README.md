@@ -81,6 +81,8 @@ https://github.com/user-attachments/assets/153ed9e6-e92c-4080-a221-eba696d828c2
 - **Message 3:** _"What was my first message to you?"_ - Showcases conversational memory with full chat context retention
 - **Message 4:** _"Tell me about the HiveSmart Light Bulb A60"_ - Illustrates Redis semantic cache hit for instant response
 
+**Note:** If the video doesn't display correctly in your browser, you can download `chatbot_demo.mov` from the repository root directory.
+
 ---
 
 ## 🚀 Quick Start
