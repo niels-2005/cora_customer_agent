@@ -145,7 +145,7 @@ uv sync
 #### 3. Start Docker Services
 ```bash
 # Start ChromaDB and Redis
-docker-compose up -d
+docker compose up -d
 ```
 
 #### 4. Configure the Application (Optional)
@@ -174,8 +174,26 @@ run_mcp
 
 #### Start the Gradio Frontend (in a new terminal)
 ```bash
+# Activate the virtual environment
+# On Linux/macOS:
+source .venv/bin/activate
+
+# On Windows:
+.venv\Scripts\activate
+
 # Start the Gradio interface, the MCP server needs to be running first to avoid connection errors
 run_gradio
+```
+
+---
+
+### Cleanup
+
+To completely remove all Docker containers, volumes, and images created by this project:
+
+```bash
+# Stop and remove containers, delete volumes, and remove images
+docker compose down -v --rmi all
 ```
 
 ---
