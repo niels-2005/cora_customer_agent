@@ -53,7 +53,6 @@ The goal is to improve customer satisfaction while reducing support team workloa
 
 ### 🛡️ Agent Middleware
 - **PII Protection** - Automatically redacts emails and masks credit card numbers
-- **Safe Logging** – Ensures no sensitive data is written to logs or cached
 
 ### 💾 Conversational Memory
 - **In-Memory State** - Maintains conversation history within sessions
