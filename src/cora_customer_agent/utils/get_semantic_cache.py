@@ -1,7 +1,9 @@
+import logging
+
 from redisvl.extensions.cache.llm import SemanticCache
 from redisvl.utils.vectorize import HFTextVectorizer
+
 from cora_customer_agent.cora_config import Config
-import logging
 
 logger = logging.getLogger(__name__)
 

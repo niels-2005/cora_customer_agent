@@ -1,6 +1,8 @@
-from langchain_mcp_adapters.client import MultiServerMCPClient
-from cora_customer_agent.cora_config import Config
 import logging
+
+from langchain_mcp_adapters.client import MultiServerMCPClient
+
+from cora_customer_agent.cora_config import Config
 
 logger = logging.getLogger(__name__)
 

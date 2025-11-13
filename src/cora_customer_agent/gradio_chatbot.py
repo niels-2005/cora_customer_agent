@@ -1,11 +1,14 @@
 import asyncio
-from cora_customer_agent.utils.get_agent import get_agent
-from cora_customer_agent.utils.get_semantic_cache import get_semantic_cache
-from pydantic import BaseModel
+import logging
+
 import gradio as gr
 from dotenv import load_dotenv
+from pydantic import BaseModel
+
+from cora_customer_agent.utils.get_agent import get_agent
+from cora_customer_agent.utils.get_semantic_cache import get_semantic_cache
+
 from .setup_logging import setup_logging
-import logging
 
 setup_logging(service_name="cora_customer_agent")
 

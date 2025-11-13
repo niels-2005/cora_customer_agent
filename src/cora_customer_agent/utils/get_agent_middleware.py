@@ -1,6 +1,9 @@
-from langchain.agents.middleware import dynamic_prompt, ModelRequest, PIIMiddleware
-from .get_system_prompt import get_system_prompt
 import logging
+
+from langchain.agents.middleware import (ModelRequest, PIIMiddleware,
+                                         dynamic_prompt)
+
+from .get_system_prompt import get_system_prompt
 
 logger = logging.getLogger(__name__)
 

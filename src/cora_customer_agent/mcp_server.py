@@ -1,8 +1,10 @@
-from mcp.server.fastmcp import FastMCP
-from langchain_core.documents import Document
-from cora_customer_agent.utils.load_vector_store import load_vector_store
-from cora_customer_agent.cora_config import Config
 import logging
+
+from langchain_core.documents import Document
+from mcp.server.fastmcp import FastMCP
+
+from cora_customer_agent.cora_config import Config
+from cora_customer_agent.utils.load_vector_store import load_vector_store
 
 logger = logging.getLogger(__name__)
 

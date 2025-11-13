@@ -1,9 +1,11 @@
-from langchain_community.document_loaders import JSONLoader
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_chroma import Chroma
-from cora_customer_agent.cora_config import Config
-from langchain_core.documents import Document
 import logging
+
+from langchain_chroma import Chroma
+from langchain_community.document_loaders import JSONLoader
+from langchain_core.documents import Document
+from langchain_huggingface import HuggingFaceEmbeddings
+
+from cora_customer_agent.cora_config import Config
 
 logger = logging.getLogger(__name__)
 

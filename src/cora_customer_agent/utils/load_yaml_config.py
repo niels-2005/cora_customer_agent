@@ -1,6 +1,7 @@
-import yaml
-from typing import Any
 import logging
+from typing import Any
+
+import yaml
 
 logger = logging.getLogger(__name__)
 
