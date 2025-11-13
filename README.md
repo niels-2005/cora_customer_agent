@@ -249,20 +249,20 @@ Traces will now appear in your LangSmith dashboard at https://smith.langchain.co
 
 ## 🚧 Future Improvements
 
-This project is a prototype designed for learning and demonstration purposes. If further development were to continue, the following enhancements would be prioritized:
+Since November 13, 2025, this project is no longer actively developed. However, if I were to continue its evolution, I would focus on the following enhancements:
 
 - **PostgreSQL Integration** - Implement persistent conversation history and user accounts (currently in-memory state lost on restart)
 - **Authentication System** - Add user login and personalized chat history (currently single-user frontend)
-- **Reasoning Display in UI** - Show agent reasoning steps in the frontend for transparency (currently hidden when enabled)
+- **Reasoning Display in UI** - Show agent reasoning steps in the frontend for transparency (currently hidden when reasoning is enabled)
 - **Automated Model Management** - Implement automatic Ollama model download and version management (currently manual)
-- **Semantic Cache Optimization** - Fix personalization issue where cached responses contain wrong user names due to dynamic system prompts. Solutions: user-specific cache keys, context-aware caching, or exclude personalized responses. Note: Semantic cache implemented for learning purposes
+- **Semantic Cache Optimization** - Fix personalization issue where cached responses contain wrong user names due to dynamic system prompts. Solutions: user-specific cache keys (expensive) or exclude personalized responses.
 - **Dynamic RAG Parameters** - Allow agent to dynamically determine document retrieval count based on query complexity with bounded limits (min=1, max=10) and embedding-based reranker. Currently hardcoded (`k=1`, threshold=`0.4`)
-- **AI-as-a-Judge Evaluation Framework** - Implement comprehensive evaluation including agent workflow analysis, input/output comparison against reference outputs, RAG retrieval quality assessment, and edge case testing (non-existent products, ambiguous queries). Resources: [LangSmith Documentation](https://docs.smith.langchain.com), [openevals](https://github.com/langchain-ai/openevals), and [agentevals](https://github.com/langchain-ai/agentevals) repositories. Note: Not implemented due to hardware limitations
+- **AI-as-a-Judge Evaluation Framework** - Implement comprehensive evaluation including agent workflow analysis, input/output comparison against reference outputs, RAG retrieval quality assessment, and edge case testing (non-existent products, ambiguous queries). Resources: [LangSmith Documentation](https://docs.smith.langchain.com), [openevals](https://github.com/langchain-ai/openevals), and [agentevals](https://github.com/langchain-ai/agentevals) repositories. Not implemented due to hardware limitations
 - **Model & Embedding Experimentation** - Systematic testing with different embedding models and LLMs to optimize performance (hardware constraints prevented comprehensive testing)
 - **Langfuse Integration** - For fully open-source observability, consider [Langfuse](https://langfuse.com) as an alternative to LangSmith (SaaS) for self-hosted tracing, evaluation, and prompt management
 - **Context Window Handling** - Implement intelligent token usage monitoring with summarization middleware at ~80-90% capacity to preserve critical information while staying within model constraints (currently ignored due to hardware limitations)
 - **Enhanced MCP Tools** - Extend the MCP server with product recommendation engine, order tracking integration, personalized suggestions based on user history, and smart home device compatibility checker
-- **User Profile Management MCP Server** - Separate MCP server (separation of concerns) for updating personal information (address, preferences) via chatbot. Note: Requires careful evaluation and introduces security risks that must be thoroughly addressed
+- **User Profile Management MCP Server** - Separate MCP server (separation of concerns) for updating personal information (address, preferences) via chatbot. Requires careful evaluation and introduces security risks that must be thoroughly addressed
 - **Voice Interface** - Speech-to-text and text-to-speech capabilities for accessibility
 - **Image Support** - Visual product catalogs with image embeddings for multimodal interactions
 - **Feedback Loop** - User ratings to improve responses over time through reinforcement learning
