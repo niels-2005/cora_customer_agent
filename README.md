@@ -243,6 +243,9 @@ Enable distributed tracing and debugging with [LangSmith](https://docs.langchain
 
 Traces will now appear in your LangSmith dashboard at https://smith.langchain.com
 
+Example trace:
+![LangSmith Trace Example](readme_images/langsmith_trace.png)
+
 ---
 
 ## 🚧 Future Improvements
