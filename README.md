@@ -21,7 +21,7 @@
 
 **CORA (Customer-Oriented Responsive Assistant)** is a prototype AI agent designed for **TechHive**, a simulated e-commerce company specializing in smart home devices, gaming hardware, and computer technology. This project demonstrates how modern AI technologies can revolutionize customer service by automating repetitive inquiries, providing instant product information, and delivering personalized support experiences.
 
-The goal is to improve customer satisfaction while reducing support team workload by intelligently handling common questions about orders, returns, product specifications, and company policies.
+The goal is to improve customer satisfaction while reducing support team workload by intelligently handling common questions.
 
 ---
 
