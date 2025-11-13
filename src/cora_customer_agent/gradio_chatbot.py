@@ -1,3 +1,4 @@
+import asyncio
 from cora_customer_agent.utils.get_agent import get_agent
 from cora_customer_agent.utils.get_semantic_cache import get_semantic_cache
 from pydantic import BaseModel
@@ -39,11 +40,6 @@ async def generate_response(message, history):
         str: Partial response content as tokens are generated.
     """
     try:
-        # lazy load the agent, needed because get_agent is async. In production, consider initializing at startup with warmup sentences.
-        global _agent
-        if _agent is None:
-            _agent = await get_agent()
-
         # If Tokenizer available that supports async, switch to "await _semantic_cache.acheck(message)"
         cache_hit = _semantic_cache.check(message)
         if cache_hit:
@@ -64,7 +60,9 @@ async def generate_response(message, history):
             },
             config={"configurable": {"thread_id": "1"}},
             stream_mode="messages",
-            context=UserContext(user_name="Niels"),
+            context=UserContext(
+                user_name="Niels"
+            ),  # here you can change the user context, example: UserContext(user_name="Marc"), the Agent will respond accordingly
         ):
             # skip tool call tokens
             if hasattr(token, "tool_call_id") and token.tool_call_id:
@@ -85,9 +83,14 @@ async def generate_response(message, history):
         yield "Sorry, something went wrong. Please try again later."
 
 
-def main():
-    """Launches the Gradio chat interface for the customer support assistant."""
+async def async_main():
+    """Async main function to launch the Gradio chat interface with initializing the agent."""
     try:
+        # needed because get_agent is async. In production, consider initializing with warmup sentences.
+        global _agent
+        if _agent is None:
+            _agent = await get_agent()
+
         gr.ChatInterface(
             fn=generate_response,
             type="messages",
@@ -101,5 +104,6 @@ def main():
         logger.error(f"Error launching Gradio interface: {e}", exc_info=True)
 
 
-if __name__ == "__main__":
-    main()
+def main():
+    """Synchronous entry point for the Gradio chatbot (called by script entry point)."""
+    asyncio.run(async_main())
