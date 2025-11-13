@@ -22,7 +22,7 @@ services:
   #   - vector_db_config.host: "127.0.0.1"
   #   - vector_db_config.port: 8000
   chroma:
-    image: chromadb/chroma:latest
+    image: chromadb/chroma:1.2.1
     container_name: chroma
     ports:
       - "8000:8000" # Port for HTTP API (must match cora_config.yaml)
@@ -40,7 +40,7 @@ services:
   # Important Configuration in cora_config.yaml:
   #   - semantic_cache_config.redis_url: "redis://localhost:6379"
   redis:
-    image: redis/redis-stack:latest # Redis Stack includes RedisSearch for vector search
+    image: redis/redis-stack:7.4.0-v8 # Redis Stack includes RedisSearch for vector search
     container_name: redis
     ports:
       - "6379:6379" # Standard Redis port (must match cora_config.yaml)

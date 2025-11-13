@@ -122,8 +122,8 @@ ollama_config:
 
 #### 1. Clone the Repository
 ```bash
-git clone git@github.com:niels-2005/cora_customer_agent.git
-cd cora_customer_agent
+git clone git@github.com:niels-2005/CoraCustomerAgent.git
+cd CoraCustomerAgent
 ```
 
 #### 2. Create Virtual Environment
