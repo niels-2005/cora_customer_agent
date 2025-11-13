@@ -73,6 +73,8 @@ The following demo showcases CORA's key capabilities:
 
 https://github.com/user-attachments/assets/153ed9e6-e92c-4080-a221-eba696d828c2
 
+**Note:** If the video doesn't display correctly in your browser, you can download `chatbot_demo.mov` from the repository root directory.
+
 **Demo Highlights:**
 - **Left Panel:** Gradio chat interface where users interact with CORA
 - **Right Panel:** Terminal displaying the MCP server logs in real-time
@@ -80,8 +82,6 @@ https://github.com/user-attachments/assets/153ed9e6-e92c-4080-a221-eba696d828c2
 - **Message 2:** _"Tell me about the HiveSmart Light Bulb A60"_ - Demonstrates MCP tool calling (`get_product_informations`) visible in the terminal
 - **Message 3:** _"What was my first message to you?"_ - Showcases conversational memory with full chat context retention
 - **Message 4:** _"Tell me about the HiveSmart Light Bulb A60"_ - Illustrates Redis semantic cache hit for instant response
-
-**Note:** If the video doesn't display correctly in your browser, you can download `chatbot_demo.mov` from the repository root directory.
 
 ---
 
