@@ -268,7 +268,7 @@ Since November 13, 2025, this project is no longer actively developed. However, 
 - **User Profile Management MCP Server** - Separate MCP server (separation of concerns) for updating personal information (address, preferences) via chatbot.Requires careful evaluation and introduces security risks that must be thoroughly addressed
 - **Voice Interface** - Speech-to-text and text-to-speech capabilities for accessibility
 - **Image Support** - Visual product catalogs with image embeddings for multimodal interactions
-- **Feedback Loop** - User ratings to improve responses over time through reinforcement learning
+- **Feedback Loop** - User ratings to improve responses over time 
 - **API-Based Model Inference** - Consider hosted APIs (OpenAI, Anthropic) for improved performance, access to frontier models, and reduced infrastructure overhead. ⚠️ **Critical:** Ensure no sensitive customer data (PII, payment info, personal details) is sent to external APIs in production through strict data filtering and anonymization
 - **And probably much more!**
 
