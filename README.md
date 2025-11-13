@@ -47,12 +47,9 @@ The goal is to improve customer satisfaction while reducing support team workloa
 - **Async Tool Execution** - Non-blocking operations for efficient query handling
 - **Standardized Interface** - Clean separation between agent logic and data access
 
-### 👤 Dynamic System Prompts
-- **Personalized Greetings** - Addresses users by name for a more engaging experience
-- **Company Branding** - Consistent TechHive identity across all interactions
-
-### 🛡️ Agent Middleware
+### 🛡 Agent Middleware
 - **PII Protection** - Automatically redacts emails and masks credit card numbers
+- **Dynamic System Prompts** - Personalized greetings addressing users by name for engaging experiences
 
 ### 💾 Conversational Memory
 - **In-Memory State** - Maintains conversation history within sessions
