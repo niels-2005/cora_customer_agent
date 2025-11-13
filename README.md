@@ -49,39 +49,25 @@ The goal is to improve customer satisfaction while reducing support team workloa
 
 ### 👤 Dynamic System Prompts
 - **Personalized Greetings** - Addresses users by name for a more engaging experience
-- **Context-Aware Responses** - Adapts tone and content based on user information
 - **Company Branding** - Consistent TechHive identity across all interactions
 
 ### 🛡️ Agent Middleware
 - **PII Protection** - Automatically redacts emails and masks credit card numbers
-- **Input Sanitization** - Prevents sensitive data from being logged or cached
-- **Dynamic Prompt Injection** - Contextualizes system prompts at runtime
+- **Safe Logging** – Ensures no sensitive data is written to logs or cached
 
 ### 💾 Conversational Memory
 - **In-Memory State** - Maintains conversation history within sessions
 - **Thread-Based Persistence** - Tracks multi-turn conversations with thread IDs
-- **Stateful Interactions** - Agent remembers previous context for follow-up questions
 
 ### 🎨 Simple Gradio Frontend
 - **Chat Interface** - Clean, intuitive UI for interacting with CORA
 - **Streaming Responses** - Token-by-token output for responsive user experience
-- **Easy Deployment** - Single command to launch the web interface
-
-### 🗄️ Vector Database (ChromaDB)
-- **Persistent Storage** - Documents remain available across restarts
-- **Docker-Hosted** - Easy deployment with docker-compose
-- **Configurable Collections** - Separate FAQ and product knowledge bases
 
 ### ⚡ Redis Semantic Cache
 - **Query Caching** - Stores responses to semantically similar questions
 - **Reduced Latency** - Instant responses for cached queries
 - **Cost Optimization** - Minimizes LLM inference calls
 - **TTL Management** - Automatic cache expiration after configurable time periods
-
-### 🐳 Docker Deployment
-- **One-Command Setup** - `docker-compose up -d` launches all services
-- **Isolated Services** - ChromaDB and Redis run in separate containers
-- **Persistent Volumes** - Data survives container restarts
 
 ---
 
