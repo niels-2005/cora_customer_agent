@@ -1,6 +1,9 @@
 from redisvl.extensions.cache.llm import SemanticCache
 from redisvl.utils.vectorize import HFTextVectorizer
 from cora_customer_agent.cora_config import Config
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def get_semantic_cache() -> SemanticCache:
@@ -10,7 +13,13 @@ def get_semantic_cache() -> SemanticCache:
     Returns:
         SemanticCache: The configured semantic cache instance.
     """
-    return SemanticCache(
-        **Config.semantic_cache_config,
-        vectorizer=HFTextVectorizer(model=Config.embedding_model_config["model_name"]),
-    )
+    try:
+        return SemanticCache(
+            **Config.semantic_cache_config,
+            vectorizer=HFTextVectorizer(
+                model=Config.embedding_model_config["model_name"]
+            ),
+        )
+    except Exception as e:
+        logger.error(f"Error creating semantic cache: {e}", exc_info=True)
+        raise e

@@ -3,6 +3,12 @@ from cora_customer_agent.utils.get_semantic_cache import get_semantic_cache
 from pydantic import BaseModel
 import gradio as gr
 from dotenv import load_dotenv
+from .setup_logging import setup_logging
+import logging
+
+setup_logging(service_name="cora_customer_agent")
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 
@@ -32,58 +38,67 @@ async def generate_response(message, history):
     Yields:
         str: Partial response content as tokens are generated.
     """
-    # lazy load the agent, needed because get_agent is async. In production, consider initializing at startup with warmup sentences.
-    global _agent
-    if _agent is None:
-        _agent = await get_agent()
+    try:
+        # lazy load the agent, needed because get_agent is async. In production, consider initializing at startup with warmup sentences.
+        global _agent
+        if _agent is None:
+            _agent = await get_agent()
 
-    # If Tokenizer available that supports async, switch to "await _semantic_cache.acheck(message)"
-    cache_hit = _semantic_cache.check(message)
-    if cache_hit:
-        yield cache_hit[0]["response"]
-        return
+        # If Tokenizer available that supports async, switch to "await _semantic_cache.acheck(message)"
+        cache_hit = _semantic_cache.check(message)
+        if cache_hit:
+            yield cache_hit[0]["response"]
+            return
 
-    full_response = ""
+        full_response = ""
 
-    async for token, metadata in _agent.astream(
-        {
-            "messages": [
-                {
-                    "role": "user",
-                    "content": message,
-                }
-            ]
-        },
-        config={"configurable": {"thread_id": "1"}},
-        stream_mode="messages",
-        context=UserContext(user_name="Niels"),
-    ):
-        # skip tool call tokens
-        if hasattr(token, "tool_call_id") and token.tool_call_id:
-            continue
+        # stream the response asynchronously back to the user
+        async for token, metadata in _agent.astream(
+            {
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": message,
+                    }
+                ]
+            },
+            config={"configurable": {"thread_id": "1"}},
+            stream_mode="messages",
+            context=UserContext(user_name="Niels"),
+        ):
+            # skip tool call tokens
+            if hasattr(token, "tool_call_id") and token.tool_call_id:
+                continue
 
-        if token.content:
-            full_response += token.content
-            yield full_response
+            if token.content:
+                full_response += token.content
+                yield full_response
 
-    if full_response.strip():
-        # If Tokenizer availdable that supports async, switch to "await _semantic_cache.astore(...)"
-        _semantic_cache.store(
-            prompt=message,
-            response=full_response,
-        )
+        if full_response.strip():
+            # If Tokenizer availdable that supports async, switch to "await _semantic_cache.astore(...)"
+            _semantic_cache.store(
+                prompt=message,
+                response=full_response,
+            )
+    except Exception as e:
+        logger.error(f"Error generating response: {e}", exc_info=True)
+        yield "Sorry, something went wrong. Please try again later."
 
 
 def main():
-    gr.ChatInterface(
-        fn=generate_response,
-        type="messages",
-        textbox=gr.Textbox(
-            placeholder="Ask me anything about TechHive", container=False, scale=7
-        ),
-        title="CORA - TechHive Customer Support Assistant",
-        theme=gr.themes.Monochrome(),
-    ).launch()
+    """Launches the Gradio chat interface for the customer support assistant."""
+    try:
+        gr.ChatInterface(
+            fn=generate_response,
+            type="messages",
+            textbox=gr.Textbox(
+                placeholder="Ask me anything about TechHive", container=False, scale=7
+            ),
+            title="CORA - TechHive Customer Support Assistant",
+            theme=gr.themes.Monochrome(),
+        ).launch()
+    except Exception as e:
+        logger.error(f"Error launching Gradio interface: {e}", exc_info=True)
 
 
 if __name__ == "__main__":

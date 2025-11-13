@@ -1,25 +1,59 @@
+# ============================================================================
+# CORA Customer Agent - Docker Compose Configuration
+# ============================================================================
+# This file defines the required services for the CORA Customer Agent.
+#
+# Services used:
+#   - ChromaDB: Vector database for FAQ and product documents
+#   - Redis: Semantic cache for LLM requests
+#
+# IMPORTANT: The ports and hosts in this file must match the
+# cora_config.yaml configuration!
+# ============================================================================
+
 services:
+  # --------------------------------------------------------------------------
+  # ChromaDB - Vector Database Service
+  # --------------------------------------------------------------------------
+  # ChromaDB stores the vectorized documents (FAQs and products).
+  # The agent uses this database for semantic searches via MCP Tools.
+  #
+  # Important Configuration in cora_config.yaml:
+  #   - vector_db_config.host: "127.0.0.1"
+  #   - vector_db_config.port: 8000
   chroma:
     image: chromadb/chroma:latest
     container_name: chroma
     ports:
-      - "8000:8000"
+      - "8000:8000" # Port for HTTP API (must match cora_config.yaml)
     environment:
-      - CHROMA_DB_PATH=/data/chroma_db
+      - CHROMA_DB_PATH=/data/chroma_db # Internal path for database files
     volumes:
-      - chroma_data:/data
+      - chroma_data:/data # Persistent storage for vector data
 
+  # --------------------------------------------------------------------------
+  # Redis - Semantic Cache Service
+  # --------------------------------------------------------------------------
+  # Redis stores semantically similar LLM requests and their responses.
+  # This reduces the number of LLM calls and improves performance.
+  #
+  # Important Configuration in cora_config.yaml:
+  #   - semantic_cache_config.redis_url: "redis://localhost:6379"
   redis:
-    image: redis/redis-stack:latest
+    image: redis/redis-stack:latest # Redis Stack includes RedisSearch for vector search
     container_name: redis
     ports:
-      - "6379:6379"
-    restart: unless-stopped
+      - "6379:6379" # Standard Redis port (must match cora_config.yaml)
     volumes:
-      - redis_data:/data
+      - redis_data:/data # Persistent storage for cache data
 
+# ----------------------------------------------------------------------------
+# Persistent Volumes
+# ----------------------------------------------------------------------------
+# Both services use named volumes for persistent data storage.
+# Data persists even after container restarts.
 volumes:
   chroma_data:
-    name: chroma_data
+    name: chroma_data # Stores vectorized documents
   redis_data:
-    name: redis_data
+    name: redis_data # Stores cache data

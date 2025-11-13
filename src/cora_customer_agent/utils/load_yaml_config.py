@@ -1,5 +1,8 @@
 import yaml
 from typing import Any
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def load_yaml_config(file_path: str) -> Any:
@@ -11,5 +14,9 @@ def load_yaml_config(file_path: str) -> Any:
     Returns:
         Any: The contents of the YAML file.
     """
-    with open(file_path, "r") as file:
-        return yaml.safe_load(file)
+    try:
+        with open(file_path, "r") as file:
+            return yaml.safe_load(file)
+    except Exception as e:
+        logger.error(f"Error loading YAML config from {file_path}: {e}", exc_info=True)
+        raise e
