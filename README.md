@@ -268,7 +268,7 @@ rm -rf CoraCustomerAgent
 
 ## 🚧 Future Improvements
 
-Since November 13, 2025, this project is no longer actively developed. However, if I were to continue its evolution, I would focus on the following enhancements:
+This project is currently being expanded with a number of planned enhancements and ongoing improvements, including:
 
 - **PostgreSQL Integration** - Implement persistent conversation history and user accounts (currently in-memory state lost on restart)
 - **Authentication System** - Add user login and personalized chat history (currently single-user frontend)
